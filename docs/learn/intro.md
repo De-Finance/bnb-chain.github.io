@@ -39,16 +39,16 @@ BSC 코어 팀은 탈중앙화된 연산력과 스토리지에 대한 계속되�
 
 ![BSC 2022](/img/assets/BNBChain2022.png)
 
-### BNB Sidechain
-The BNB Sidechain is an infrastructure introduced to help developers and node operators build and run their own blockchain as their internal value system for a massive number of users while still maintaining a close connection with BSC. Any project developer will be able to deploy their own BNB Sidechain with its unique specifications and validator set. This validator set can run with fewer validators than BSC, depending on the BNB Sidechain deployer. These validators can be run by the application owners or any community stakeholders, bringing more flexibility and decentralization to BNB Sidechain. The typical usage of BNB Sidechain is like the Ronin chain for the Axie Infinity.  However, to minimize the potential risks of the side chain, a new protocol (including built-in asset types and cross-chain) should be introduced to ensure seamless liquidity between BNB Sidechain and BSC.
+### BNB 사이드체인
+BNB 사이드체인은 개발자들과 노드 운영자들이 BSC와의 밀접한 연관을 유지하면서 대량의 유저들을 위한 내부 밸류 시스템으로서의 자체 블록체인을 구축할 수 있도록 도입된 인프라입니다. 어떤 프로젝트 개발자든지 고유한 스펙과 밸리데이터 세트를 가진 자체 BNB 사이드체인을 배포할 수 있습니다. 이 밸리데이터 세트는 BNB 사이드체인 배포자에 따라 BSC 보다 적은 수의 밸리데이터를 가지고 동작할 수 있습니다. 이 밸리데이터들은 앱의 주인이나 커뮤니티 이해관계자에 의해 동작될 수 있으며, 이를 통해 BNB 사이드체인의 유연성과 탈중앙성이 보장됩니다. BNB 사이드체인의 전형적인 사용 사례는 액시 인피니티(Axie Infinity)의 로닌 체인과 같습니다. 하지만 사이드체인의 잠재적 리스크를 최소화하기 위해서는 BNB 사이드체인과 BSC 간의 매끄러운 유동성을 보장하기 위한 (빌트인 애셋 타입과 크로스체인을 포함한) 새로운 프로토콜이 도입되어야 할 것입니다.
 
 ### BNB ZkRollup - 무신뢰 확장 솔루션
    
-BNB ZkRollup은  is a trustless and scaling solution for BNB 스마트 체인. BNB ZkRollup is built on ZK Rollup architecture. BNB ZkRollup bundles (or “roll-up”) hundreds of transactions off-chain and generates cryptographic proof. These proofs can come in the form of SNARKs (succinct non-interactive argument of knowledge) which can prove the validity of every single transaction in the Rollup Block. It means all funds are held on the BSC, while computation and storage are performed on BNB Sidechain with less cost and fast speed.
+BNB ZkRollup은 BNB 스마트 체인을 위한 무신뢰 확장 솔루션입니다. BNB ZkRollup은 ZK 롤업 아키텍처 위에 구축되어 있습니다. BNB ZkRollup은 체인 밖에서 수백 개의 트랜잭션을 묶어서(“롤업”) 암호화 증명을 생성해냅니다. 이러한 증명들은 롤업 블록의 모든 트랜잭션의 유효성을 증명할 수 있는 SNARK (succinct non-interactive argument of knowledge) 형태로 있기도 합니다. 이는 즉 연산과 스토리지가 더 저렴한 비용과 빠른 속도로 BNB 사이드체인에서 실행되는 동시에 모든 자금들이 BSC에 보관된다는 것을 뜻합니다.
 
-BNB ZkRollup achieves the following goals:
+BNB ZkRollup이 달성하는 목표는 다음과 같습니다:
 
-* No sacrificing on decentralization or security; 
+* 탈중앙화나 보안을 희생하지 않을 것
 * The BNB ZkRollup share the same security as BSC does. Thanks to zkSNARK proofs, the security is guaranteed by cryptographic. Users do not have to trust any third parties or keep monitoring the Rollup blocks in order to prevent fraud.
 * Fast transaction speed, faster finality, much lower gas fee.
 * BNB, and BEP20/BEP721/BEP1155 created on BSC or BNB ZkRollup can flow freely between BSC and ZkRollup.
