@@ -1,10 +1,10 @@
 # Cross-Chain Transfer Token Transfer
 
-Cross-chain transfers only support bound BEP2 or BEP8 tokens on BC and BEP20 tokens on BSC.
+크로스체인 전송은 BC에서 bound BEP2나 BEP8 토큰 그리고 BSC에서 BEP20 토큰을 지원합니다.
 
-## Verify Token Info
+## 토큰 정보 확인
 
-First, you should make sure that it's already bound. For example, you could see the binding info of **BNB**:
+첫째로, 이미 bound되어 있는 것을 확인해야 합니다. 예를 들어 **BNB**의 binding 정보를 확인할 수 있습니다:
 
 
 ```shell
@@ -31,10 +31,10 @@ tbnbcli token info --symbol BNB --trust-node --node http://data-seed-pre-0-s3.bi
 }
 ```
 
-As BNB is the native token on both chains, so we use `0x0000000000000000000000000000000000000000` as the corresponding contract address. Besides, on BSC, the native token decimals is 18, while the decimals on BC is 8. So if you transfer 1e8:BNB to BSC, the recipient balance will gain 1e18.
+BNB가 양 체인의 네이티브 토큰인 만큼, `0x0000000000000000000000000000000000000000`를 상응하는 컨트랙트 주소로 사용합니다. 이에 더해 BSC에서는 네이티브 토큰의 decimals이 18인 반면, BC의 decimals은 8입니다. 따라서 1e8:BNB를 BSC로 전송할 경우, 수신자의 잔액은 1e18 만큼 증가합니다.
 
 
-## Transfer BNB from BC to BSC
+## BC에서 BSC로 BNB 전송하기
 
 **Example:**
 
@@ -62,12 +62,12 @@ Call **transferOut** of [TokenHub contract](https://raw.githubusercontent.com/bn
 
 
 
-| Parameter Name | Type    | Description                                                  |
+| 파라미터  | 타입    | 설명                                                  |
 | -------------- | ------- | ------------------------------------------------------------ |
 | contractAddr   | address | for BNB, the value must be 0x0000000000000000000000000000000000000000 |
 | recipient      | address | decode bech32 address, starting with `0x` . To transfer to hex string. This is a online too to decode bech32: https://slowli.github.io/bech32-buffer/ |
 | amount         | uint256 | The BNB decimals on  BSC is 18. If you want to transfer one BNB, then the value should be 1e18. Besides, the value must be N * 1e10 |
-| expireTime     | uint256 | Timestamp, counted by  second                                |
+| expireTime     | uint256 | 초 단위의 타임스탬프                              |
 
 The value here should follow this equation:
 
@@ -86,12 +86,12 @@ Call **batchTransferOutBNB** of TokenHub contract in MyEtherWallet:
 
 <img src="https://github.com/binance-chain/docs-site/raw/master/docs/assets/batchTransferOutBNB.png" alt="img" style= { { zoom:"20%" } } />
 
-| Parameter Name | Type      | Description                                                  |
+| 파라미터  | 타입    | 설명                                                                    |
 | -------------- | --------- | ------------------------------------------------------------ |
 | recipientAddrs | address[] | decode bech32 address  to hex string. This is a online too to decode bech32: https://slowli.github.io/bech32-buffer/0 |
 | amounts        | uint256[] | amount for each  recipient, should be N * 1e10               |
 | refundAddrs    | address[] | sender can specify  some address as the refund address if the cross chain transfer is failed. |
-| expireTime     | uint256   | Timestamp, counted by  second                                |
+| expireTime     | uint256   | 초 단위의 타임스탬프                                 |
 
 
 The value here should follow this equation:
@@ -100,8 +100,8 @@ The value here should follow this equation:
 txValue = (sumOfAmounts + RelayFee * batchSize)/1e18
 ```
 
-## Transfer BEP2 to BSC
-Execute the following command to transfer ABC-A64 token to BSC:
+## BEP2를 BSC로 전송
+ABC-A64 토큰을 BSC로 전송하기 위해 아래의 명령어를 실행하세요:
 ```bash
 ## mainnet
 bnbcli bridge transfer-out --to 0xEe9546E92e6876EdF6a234eFFbD72d75360d91f0 --expire-time 1597543193 --chain-id Binance-Chain-Tigris --from owner --amount 10000000000:ABC-A64 --node http://dataseed4.binance.org:80
@@ -109,27 +109,27 @@ bnbcli bridge transfer-out --to 0xEe9546E92e6876EdF6a234eFFbD72d75360d91f0 --exp
 ## testnet
 tbnbcli bridge transfer-out --to 0xEe9546E92e6876EdF6a234eFFbD72d75360d91f0 --expire-time 1597543193 --chain-id Binance-Chain-Ganges --from owner --amount 10000000000:ABC-A64 --node http://data-seed-pre-0-s3.binance.org:80
 ```
-## Transfer BEP20 to BC
-Before calling **transferOut** or **batchTransferOut**, users need to call **approve** method to grant enough allowance to TokenHub contract. For **transferOut** method, the allowance should equal the transfer amount. For **batchTransferOut**, the allowance should be the sum of the amount array.
+## BEP20를 BC로 전송
+**transferOut**나 **batchTransferOut**를 호출하기 전, 사용자들은 **approve** 메서드를 호출하여 TokenHub 컨트랙트에 충분한 잔액(allowance)을 제공해야 합니다. **transferOut** 메서드의 경우 이 allowance가 전송 액수와 같아야 합니다. **batchTransferOut**의 경우, allowance가 amount 배열의 합과 같아야 합니다.
 
 ### transferOut
 
 <img src="https://lh3.googleusercontent.com/q8-nnt12h8gvYyMe6iwLalwzY-1jHfQ11BsSyIz3qkQPCjp_-D-dIzPxZ-HuMJngCxTs7pt65-zSUIYImpsoO8bJ_QC_pyfPMu_2O7Lh65uDvVXrkhKqOakI070vKuEK3UNnlk8m" alt="img" style= { { zoom:"25%" } } />
 
-| Parameter Name | Type    | Description                                                  |
+| 파라미터  | 타입    | 설명                                                                   |
 | ------------   | ------- | ------------------------------------------------------------ |
-| contractAddr   | address | BEP20 contract address                                       |
+| contractAddr   | address | BEP20 컨트랙트 주소                                     |
 | recipient      | address | decode bech32 address  to hex string. This is a online too to decode bech32: https://slowli.github.io/bech32-buffer/ |
 | amount         | uint256 | BEP20 token amount.  Here the decimals is 18, so the amount must be N * 1e10. |
-| expireTime     | uint256 | Timestamp, counted by  second                                |
+| expireTime     | uint256 | 초 단위의 타임스탬프                            |
 
 The value here should be RelayFee.
 
-### Mint
+### 민팅
 
 If both the BEP20 token and bep2 token are mintable, then token owners can still mint their tokens even after token binding. Besides, token owners need to ensure the total supply and the locked amount on both chains are still matched, otherwise, users might can’t transfer their tokens to another chain.
 
-#### Mint token on BC
+#### BC에서 토큰 민팅하게
 
 1. Execute the following command to mint 10000 ABC-A64:
 ```bash
@@ -144,7 +144,7 @@ tbnbcli token mint --symbol ABC-A64 --amount 1000000000000 --from owner --chain-
 * Call **mint** method of BEP20 contract, the mint amount should be 1e22.
 * Transfer all minted ABC token to tokenHub contract: `0x0000000000000000000000000000000000001004`
 
-#### Mint token on BSC
+#### BSC에서 토큰 민팅하기
 
 1. Call **mint** of BEP20 contract to mint 10000 ABC, the mint amount should be 1e22(18 decimals).
 2. Mint token on BC and lock the new minted token:
