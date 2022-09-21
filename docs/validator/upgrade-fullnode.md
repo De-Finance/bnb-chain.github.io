@@ -4,11 +4,11 @@ hide_table_of_contents: false
 sidebar_position: 2
 ---
 
-# How to Upgrade Geth
+# Geth 업그레이드하는 방법
 
-Updating `geth` is as easy as it gets. You just need to download and install the newer version of `geth`, shutdown your node and restart with the new software. Geth will automatically use the data of your old node and sync the latest blocks that were mined since you shut down the old software.
+`geth`를 업그레이드하는 법은 너무나 간단합니다. `geth`의 최신 버전을 다운로드받아 설치하고, 노드를 셧다운한 뒤 재시작하면 됩니다. Geth는 자동으로 이전 노드의 데이터를 사용하고, 이전 버전을 셧다운 한 이후로 채굴된 최신 블록과 동기화할 것입니다.
 
-## Step 1: Compile the New Version
+## 1 단계: 새 버전 컴파일하기
 
 ```bash
 git clone https://github.com/bnb-chain/bsc
@@ -19,7 +19,7 @@ make geth
 ```
 
 
-## Step 2: Stop Geth
+## 2 단계: Geth 중단하기
 
 ```
 
@@ -30,7 +30,7 @@ $ kill  $pid
 ```
 
 
-## Step 3: Restart
+## 3 단계: 재시작하기
 
 
 
