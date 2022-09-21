@@ -4,64 +4,64 @@ sidebar_position: 2
 hide_table_of_contents: false
 ---
 
-# Consensus Engine of BNB Smart Chain
+# BNB 스마트체인의 합의 엔진
 
-## Abstract
-We target to design the consensus engine of BSC(BNB Smart Chain) to achieve the following goals:
+## 요약
+BSC(BNB 스마트 체인)의 합의 엔진은 다음의 목표를 위해 구상되었습니다:
 
-1. Wait for a few blocks to confirm (should be less than Ethereum 1.0), better no fork in most cases.
-2. Blocking time should be shorter than Ethereum 1.0, i.e. 5 seconds or less.
-3. No inflation, the block reward is transaction gas fees.
-4. As much as compatible as Ethereum.
-5. With staking and governance as powerful as cosmos.
+1. 몇 개의 블록이 확정될 때까지 대기(이더리움 1.0 보다 적어야 함), 대부분의 경우 포크가 없는 편이 나음.
+2. 이더리움 1.0 대비 블로킹 시간이 짧아야 함(5초 이하).
+3. 인플레이션 없음. 트랜잭션 가스비가 블록 보상.
+4. 이더리움 정도의 호환성.
+5. 코스모스만큼 강력한 스테이킹과 거버넌스.
 
 
-[Geth](https://github.com/ethereum/go-ethereum/wiki/geth) implements two kinds of consensus engines: ethash(based on PoW) and [clique](https://ethereum-magicians.org/t/eip-225-clique-proof-of-authority-consensus-protocol/1853)(based on PoA). Ethash is not a fit option for BSC because BSC gives up PoW. Clique has a shorter blocking time and is invulnerable to 51% attack while doing as little to the core data structure as possible to preserve existing Ethereum client compatibility. The shortcoming of PoA is centralization, and the lack of meaningful staking and governance capability on-chain.  On the other hand, the Beacon Chain is built on Cosmos which does have a deployed staking and governance mechanism. Thus here we try to propose a consensus engine that:
+[Geth](https://github.com/ethereum/go-ethereum/wiki/geth)는 두 종류의 합의 엔진을 구현하고 있습니다: ethash(PoW 기반) 그리고 [clique](https://ethereum-magicians.org/t/eip-225-clique-proof-of-authority-consensus-protocol/1853)(PoA 기반)입니다. BSC는 PoW를 포기했기 때문에 Ethash는 적절한 선택지가 아닙니다. Clique는 블로킹 타임이 더 짧고, 51% 어택에 취약하지 않은 동시에 기존 이더리움 클라이언트 호환성을 유지하기 위해 코어 데이터 구조에 최소한의 변화만을 주었습니다. PoA의 단점은 중앙화, 유의미한 스테이킹의 부재 그리고 온체인 거버넌스 능력의 부족입니다. 반면에 비컨 체인은 스테이킹 및 거버넌스 메커니즘을 보유하고 있는 코스모스 위에 만들어졌습니다. 따라서 다음과 같은 합의 엔진을 제안하려 합니다:
 
-* Beacon Chain does the staking and governance parts for BSC.
-* ValidatorSet change, double sign slash of BSC is updated through interchain communication.
-* Consensus engine of BSC keeps as simple as clique.
+* 비컨 체인이 BSC 대신 스테이킹과 거버넌스를 담당합니다.
+* 검증인 집단은 변화하며, BSC의 이중 서명 슬래싱은 체인 간 커뮤니케이션을 통해 업데이트 됩니다.
+* BSC의 합의 엔진은 clique 만큼 단순합니다.
 
-We investigated some popular implementations of PoA consensus and found out that [Bor](https://blog.polygon.technology/heimdall-and-bor/) follows a similar design as above. We will borrow a few parts from Bor and propose a new consensus engine to achieve all these goals.
+대표적인 PoA 합의 몇 가지를 조사해본 결과 [Bor](https://blog.polygon.technology/heimdall-and-bor/)가 위와 흡사하게 설계되었음을 발견했습니다. Bor로부터 몇 부분을 차용하여 위의 모든 목표를 달성할 수 있는 새로운 합의 엔진을 제안할 것입니다.
 
-## Infrastructure Components
+## 인프라 구성 요소
 
-1. **Beacon Chain**. It is responsible for holding the staking function to determine validators of BSC through an independent election, and the election workflow are performed via staking procedure.
-2. **BSC validators**. Validators are responsible for validating transactions and generating blocks, ensuring the network’s security and the consistency of the ledger. In return, they receive rewards from the gas consumption of transactions.
-3. **Staking dApps on BSC(also named as system contract)**. There are several genesis contracts to help implement staking on BSC. Six classification groups of them:
-    - **Light client contract**. It is a watcher of distributed consensus process implemented by contract that only validates the consensus algorithm of Beacon Chain.
-    - **Cross Chain Contract**. It is the cross chain communication layer. It will verify the sequence and merkle proof of a cross chain package.
-    - **BSCValidatorSet contract**. It is a watcher of validators change of BSC on Beacon Chain. It will apply the validator set change for BSC. It also stores rewarded gas fee of blocking for validators, and distribute revenue to validators when receiving cross chain package of validatorSet change.
-    - **System Reward contract**. The incentive mechanism for relayers to maintain system contracts. They will get rewards from system reward contract.
-    - **Liveness Slash Contract**. The liveness of BSC relies on validator set can produce blocks timely when it is their turn. Validators can miss their turns due to any reason. This instability of the operation will hurt the performance of the network and introduce more non-deterministic into the system. This contract responsible for recording the missed blocking metrics of each validator. Once the metrics are above the predefined threshold, the blocking reward for validator will not be relayed to BC for distribution but shared with other better validators.
-    - **Other contracts**. The BSC may take advantage of powerful governance of Beacon Chain, for example, propose to change a parameter of system contracts.
+1. **비컨 체인(Beacon Chain)**. BSC 검증인을 독립된 투표를 통해 스테이킹 기능을 실현합니다. 투표 워크 플로우는 스테이킹 절차에 의해 실행됩니다.
+2. **BSC 검증인**. 검증인들은 트랜잭션을 검증하고 블록을 생성함으로써 네트워크의 안보와 원장의 일관성을 보장합니다. 그 대신 트랜잭션의 가스 소비로부터 보상을 받습니다.
+3. **BSC(또는 시스템 컨트랙트)의 스테이킹 dApp**. BSC에서 스테이킹을 구현하기 위한 제네시스 컨트랙트들이 있습니다. 여섯 가지로 분류가 됩니다:
+    - **Light client 컨트랙트**. 오직 비컨 체인의 합의 알고리즘을 검증하는 컨트랙트에 의해 구현된 분산 합의 프로세스의 watcher입니다.
+    - **Cross Chain 컨트랙트**. 크로스체인 커뮤니케이션 레이어입니다. 크로스체인 패키지의 순서와 머클 증명(merkle proof)를 검증할 것입니다.
+    - **BSCValidatorSet 컨트랙트**. 비컨 체인 상 BSC의 검증인 변경을 감시합니다. BSC의 검증인 집단 변경을 적용할 것입니다. 또한 검증인들을 위한 블록킹 가스비 보상을 저장하며, It will apply the validator set change for BSC. It also stores rewarded gas fee of blocking for validators, and distribute revenue to validators when receiving cross chain package of validatorSet change.
+    - **System Reward 컨트랙트**. 릴레이어들이 시스템 컨트랙트들을 유지할 수 있도록 해주는 인센티브 메커니즘입니다. 시스템 보상 컨트랙트에서 보상을 받을 것입니다.
+    - **Liveness Slash 컨트랙트**. BSC의 liveness는 검증인 세트에 의존하며, 자신의 차례에 적시에 블록을 생성할 수 있습니다. 검증인들은 어떤 이유에서든 자신의 차례를 놓칠 수 있습니다. 작업의 이러한 불안정성은 네트워크의 성능에 악영향을 미치며, 더 비결정론적인 성질을 시스템에 도입합니다. 이 컨트랙트는 각 검증인의 누락된 블록킹 메트릭을 기록하는 역할을 합니다. 메트릭들이 사전에 정의된 임계치 이상이라면, 검증인을 위한 블로킹 Once the metrics are above the predefined threshold, the blocking reward for validator will not be relayed to BC for distribution but shared with other better validators.
+    - **기타 contracts**.  BSC may take advantage of powerful governance of Beacon Chain, for example, propose to change a parameter of system contracts.
 
-Staking and Governance on Beacon Chain is at a higher layer upon consensus. As for Relayer, it is a standalone process and is open about how to implement it. The detail of them will not be included in this doc.
+비컨 체인의 스테이킹과 거버넌스는 합의 보다 상위에 있는 레이어입니다. 릴레이어의 경우 독립적인 프로세스이며, 구현 방법은 아직 미정입니다. 이에 대한 자세한 내용은 이 문서에서는 다루지 않겠습니다.
 
-This doc only focus on the **BSC validators** and **Staking dApps** on BSC parts which are more closely to consensus engine.
+이 문서는 오직 합의 엔진과 더 긴밀하게 연관이 있는 **BSC 검증인**와 **스테이킹 dApps**에만 초점을 맞출 것입니다.
 
-## System Reward Distribution
-The system reward structure in BSC is highly configurable. We may adjust the parameters through governance.
+## 시스템 보상 분배
+BSC의 시스템 보상 구조는 유연하게 변동할 수 있습니다. 거버넌스를 통해 파라미터를 조정할 수 있습니다.
 
-The rewards comes from transaction fees, rewards are distributed based on several(configurable) rules:
-1. Validator that generate the block will receives 15/16 of the gas fee.
-2. System reward contract receive 1/16 of the gas fee.
+보상들은 트랜잭션 수수료에서 비롯됩니다. 보상은 몇 개의 (조정 가능한) 규칙에 기반하여 분배됩니다:
+1. 블록을 생성하는 검증인들은 가스비의 15/16를 받습니다.
+2. 시스템 보상 컨트랙트는 가스비의 1/16를 받습니다.
 
-If the balance of System reward contract is above 100BNB, will not distribute any BNB to it.
-The coming section will explain how these contracts distributing reward.
+시스템 보상 컨트랙트의 잔고가 100BNB 이상인 경우, BNB를 분배하지 않습니다.
+아래에서는 이 컨트랙트들이 보상을 어떻게 분배하는지 설명하겠습니다.
 
-## Staking dApps on BSC
+## BSC의 스테이킹 dApps
 
 ### [BSCValidatorSet contract](https://bscscan.com/address/0x0000000000000000000000000000000000001000)
-It is a watcher of validators change of BSC on Beacon Chain. It implement the following interfaces:
+비컨 체인 상에서 BSC의 검증인 변경의 감시자입니다. 아래와 같은 인터페이스를 구현합니다:
 
 - **handleSynPackage(uint8, bytes calldata msgBytes)**
 
 **Conditions**:
-        1. Message sender must CrossChainContract.
+        1. 메시지 Sender는 CrossChainContract를 사용합니다.
 
 **Action**:
-        1. if the first byte of msgBytes is 0x00, do Actions validators update;
+        1. msgBytes의 첫 번째 바이트가 0x00, do Actions validators update;
         2. if the first byte of msgBytes is 0x01, do Actions jail.
 
 **Actions jail**:
@@ -130,7 +130,7 @@ Before introducing, we would like to clarify some terms:
 2. Snapshot.  Snapshot is an assistant object that help to store the validators and recent signers of blocks.
 
 
-### Key features
+### 핵심 기능
 
 #### Light Client Security
 Validators set changes take place at the (epoch+N/2) blocks. (N is the size of validatorset before epoch block). Considering the security of light client, we delay N/2 block to let validatorSet change take place.
