@@ -3,7 +3,7 @@ sidebar_label: Hardware Requirements
 hide_table_of_contents: false
 sidebar_position: 2
 ---
-# Validator Hardware Requirements 
+# 검증인 하드웨어 요구사항
 
 - 최신 버전의 Mac OS X 또는 Linux를 지원하는 VPS.
 - **중요** 2T GB의 빈 디스크 공간, solid-state drive(SSD), gp3, 8k IOPS, 250MB/S 처리량, 읽기 지연시간(read latency) <1ms (snap/fast sync로 시작할 경우 NVMe SSD 필요)
