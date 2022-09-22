@@ -3,11 +3,11 @@ sidebar_label: Wallet Creation
 hide_table_of_contents: false
 sidebar_position: 2
 ---
-# Key Management
+# 키 관리
 
 This article is a guide about key management strategy on client side of your Decentralised Application on BNB Smart Chain
 
-## Setup Web3
+## Web3 셋업
 
 `web3.js` is a javascript library that allows our client-side application to talk to the blockchain. We configure web3 to communicate via Metamask.
 
