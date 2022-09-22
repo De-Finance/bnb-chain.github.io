@@ -2,19 +2,19 @@
 sidebar_label: RPC
 ---
 
-# JSON-RPC Endpoint
+# JSON-RPC 엔드포인트
 
-## Available Resources
+## 가용 자원
 
-### Mainnet(ChainID 0x38, 56 in decimal)
+### 메인넷(ChainID 0x38, 56 in decimal)
 
-BSC RPC Endpoints:
+BSC RPC 엔드포인트:
 
-!!! NOTE
-	You can make `eth_getLogs` requests with up to a 5K block range.
-	If you need to pull logs frequently, we recommend using WebSockets to push new logs to you when they are available.
+!!! 주의
+	`eth_getLogs` 요청은 5K 블록 범위까지 가능합니다.
+	로그를 자주 조회해야 한다면 새로운 로그가 있을 때 자동으로 푸시해주는 WebSocket을 사용할 것을 권장합니다.
 
-Recommend
+권장
 
 * https://bsc-dataseed.binance.org/
 * https://bsc-dataseed1.defibit.io/
@@ -22,7 +22,7 @@ Recommend
 * https://bsc.nodereal.io
 
 
-BC RPC Endpoints:
+BC RPC 엔드포인트:
 
 * https://dataseed1.binance.org/
 * https://dataseed2.binance.org/
@@ -38,9 +38,9 @@ BC RPC Endpoints:
 * https://dataseed4.ninicoin.io/
 
 
-### Testnet(ChainID 0x61, 97 in decimal)
+### 테스트넷(ChainID 0x61, 97 in decimal)
 
-BSC RPC Endpoints:
+BSC RPC 엔드포인트:
 
 * https://data-seed-prebsc-1-s1.binance.org:8545/
 * https://data-seed-prebsc-2-s1.binance.org:8545/
@@ -49,7 +49,7 @@ BSC RPC Endpoints:
 * https://data-seed-prebsc-1-s3.binance.org:8545/
 * https://data-seed-prebsc-2-s3.binance.org:8545/
 
-BC RPC Endpoints:
+BC RPC 엔드포인트:
 
 *  http://data-seed-pre-0-s1.binance.org:80
 *  http://data-seed-pre-1-s1.binance.org:80
@@ -59,7 +59,7 @@ BC RPC Endpoints:
 
 ### Rate limit
 
-The rate limit of BSC endpoint on Testnet and Mainnet is 8K/5min.
+테스트넷과 메인넷에서 엔드포인트 처리율 제한(rate limit)은 8K/5min입니다.
 
 ### 3rd Party Provider
 
@@ -78,9 +78,9 @@ The rate limit of BSC endpoint on Testnet and Mainnet is 8K/5min.
 * [BlockVision](https://docs.blockvision.org/blockvision/): <https://docs.blockvision.org/blockvision/chain-apis/bnb-chain-api>
 
 
-## Start HTTP JSON-RPC
+## HTTP JSON-RPC 시작하기
 
-You can start the HTTP JSON-RPC with the --rpc flag
+--rpc flag로 HTTP JSON-RPC를 시작할 수 있습니다.
 ```bash
 ## mainnet
 geth attach https://bsc-dataseed1.binance.org
@@ -89,6 +89,6 @@ geth attach https://bsc-dataseed1.binance.org
 geth attach https://data-seed-prebsc-1-s1.binance.org:8545/
 ```
 
-## JSON-RPC methods
+## JSON-RPC 메서드
 
-Please refer to this [wiki page](https://github.com/ethereum/wiki/wiki/JSON-RPC) or use Postman: <https://documenter.getpostman.com/view/4117254/ethereum-json-rpc/RVu7CT5J?version=latest>
+[wiki page](https://github.com/ethereum/wiki/wiki/JSON-RPC)를 참고하거나 [Postman](https://documenter.getpostman.com/view/4117254/ethereum-json-rpc/RVu7CT5J?version=latest)을 사용하세요.
