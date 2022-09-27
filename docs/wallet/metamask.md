@@ -9,8 +9,8 @@ hide_table_of_contents: false
 
 ## 무엇인가요?
 
-MetaMask was created out of the needs of creating more secure and usable Ethereum-based web sites. In particular, it handles account management and connecting the user to the blockchain.
-It’s supported in Chrome, Brave, and Safari browsers.
+메타마스크는 더 안전하고 사용하기 편한 이더라움 기반 웹사이트를 만들 필요성에서 생겨났습니다. 특히 계정 관리 및 사용자를 블록체인에 연결시키는 기능을 수행합니다.
+크롬, 브레이브, 사파리 브라우저에서 지원됩니다.
 ## 설치하기
 
 **예시: Brave 브라우저에서 메타마스크 설치하기**
