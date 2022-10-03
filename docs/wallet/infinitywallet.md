@@ -3,7 +3,7 @@ sidebar_label: infinity Wallet
 hide_table_of_contents: false
 ---
 
-# Using Infinity Wallet on the BNB Smart Chain
+# BNB 스마트 체인에서 인피니티 월렛(Infinity Wallet) 사용하기
 
 ## What is it?
 Infinity Wallet is the ultimate easy to use, secure, multicurrency, practical and convenient self-custodial cryptocurrency wallet, that provides all a user will ever need in one platform. With a wide range of new and innovative features to access digital assets, empowering financial freedom. 
