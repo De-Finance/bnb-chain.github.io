@@ -23,7 +23,7 @@ sidebar_position: 2
 
 ## 고속 노드 실행 단계
 
-### Sync From Snapshot (Recommended)
+### 스냅샷에서 동기화 (권장)
 
 1. [릴리즈 페이지](https://github.com/bnb-chain/bsc/releases/latest)에서 이미 빌드된 바이너리를 다운받거나 아래의 지시를 따릅니다.
 
@@ -58,7 +58,7 @@ unzip mainnet.zip
 
 ### 제네시스 블록에서 동기화 (권장되지 않음)
 
-1. 소스 코드에서 빌드
+1. 소스 코드에서 빌드합니다.
 
 [Go 1.13+](https://golang.org/doc/install)가 설치되어 있고 `GOPATH`가 `PATH` 환경 변수에 추가되어 있는 것을 확인해주세요.
 
@@ -81,7 +81,7 @@ wget   $(curl -s https://api.github.com/repos/bnb-chain/bsc/releases/latest |gre
 
 2. config 파일을 다운받습니다.
 
-Download `genesis.json` and `config.toml` by:
+`genesis.json`과 `config.toml`를 아래와 같이 다운받습니다.
 
 ```bash
 ## mainet
@@ -143,8 +143,8 @@ geth --tries-verify-mode full --config ./config.toml --datadir ./node  --cache 8
 
 ## 노드 관리
 
-### 피어 발견
-부트스트랩 노드들은 근시일 내에 개선될 것입니다. 여태까지 http 서비스가 동기화를 위해 일부 안정적인 퍼블릭 p2p 피어들을 제공해왔습니다. https://api.binance.org/v1/discovery/peers를 방문하여 피어 정보를 확인하세요. 풀노드의 네트워킹 개선을 위해 config.toml의 `StaticNodes`에 피어 정보를 추가할 수 있습니다. 번잡한 네트워킹을 방지하기 위해, 발견 서비스가 피어 정보를 종종 변경할 것입니다. 연결된 풀노드 피어 수가 너무 적을 경우 새로 가져오기를 시도해보세요.
+### 피어 탐색
+부트스트랩 노드들은 근시일 내에 개선될 것입니다. 지금까지 탐색 http 서비스가 동기화를 위해 일부 안정적인 퍼블릭 p2p 피어들을 제공해왔습니다. https://api.binance.org/v1/discovery/peers를 방문하여 피어 정보를 확인하세요. 풀노드의 네트워킹 개선을 위해 config.toml의 `StaticNodes`에 피어 정보를 추가할 수 있습니다. 번잡한 네트워킹을 방지하기 위해, 탐색 서비스가 피어 정보를 종종 변경할 것입니다. 연결된 풀노드 피어 수가 너무 적을 경우 새로 가져오기를 시도해보세요.
 
 ### 바이너리
 모든 클라이언트들은 가장 최신 버전으로 업그레이드 하는 것이 권장됩니다. [최신 버전](https://github.com/bnb-chain/bsc/releases/latest)은 더 안정적이고 성능이 더 높습니다.
