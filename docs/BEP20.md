@@ -3,7 +3,7 @@ sidebar_label: Introduction
 sidebar_position: 2
 ---
 
-# BEP20 Token Introduction
+# BEP20 토큰 개요
 A BEP20 token must implement the interface `IBEP20` in [IBEP20.sol](IBEP20.sol). This is a template contract [BEP20Token.template](BEP20Token.template). Users just need to fill in `_name`, `_symbol`, `_decimals` and `_totalSupply` according to their own requirements:
 ```
   constructor() public {
