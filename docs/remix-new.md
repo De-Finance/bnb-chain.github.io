@@ -9,7 +9,7 @@ sidebar_position: 2
 이 튜토리얼에서는 [Remix IDE](https://remix.ethereum.org/)를 사용하여 BSC에서 간단한 Hello World 스마트 컨트랙트를 작성, 컴파일 및 배포하는 방법에 대한 가이드를 제공합니다.
 
 ### 요구사항
-Remix IDE를 사용하여 BSC에 솔리드 스마트 컨트랙트를 배포하기 위해 로컬 환경 설정이 필요하지 않습니다.
+Remix IDE를 사용하여 BSC에 솔리드 스마트 컨트랙트를 배포하는 데에는 로컬 환경 설정이 필요하지 않습니다.
  
 BSC 테스트넷 및 배포된 컨트랙트와 상호 작용하는 브라우저 기반 웹3 지갑(예: 메타마스크)만 있으면 됩니다. 이미 메타마스크를 사용하는 경우 Replit을 사용하여 테스트할 새 계정을 만드는 것이 좋습니다. 메타마스크 인터페이스의 우측 상단 모서리에 있는 계정 아바타를 클릭하면 나타나는 계정 메뉴에서 이 작업을 수행할 수 있습니다.
  
@@ -19,7 +19,7 @@ BSC에 솔리디티 스마트 컨트랙트를 배포하려면 다음 모든 요�
 * [메타마스크에서 BNB 스마트 체인 테스트넷 구성](https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain)
 * [BNB 테스트넷 토큰 받기](https://testnet.binance.org/faucet-smart)
  
-### 리믹스 IDE를 설정하기
+### 리믹스 IDE 설정하기
 
 - Remix는 스마트 컨트랙트를 개발하기 위한 온라인 IDE입니다.
 - Solidity 컴파일러를 선택하고, 적절한 컴파일러 버전을 선택해야 합니다. 이 튜토리얼은 0.8.15를 사용했습니다.
@@ -42,7 +42,7 @@ contract HelloWorld {
 
 첫 번째 줄의 `pragma solidity ^0.8.15`는 소스코드가 솔리디티 버전 0.8.15 이상을 위한 것임을 나타냅니다. [Pragmas](https://solidity.readthedocs.io/en/latest/layout-of-source-files.html#pragma)는 소스모드를 어떻게 처리해야 하는지에 대한 일반적 지침들입니다 (e.g., pragma once).
 
-솔리디티에서 컨트랙트는 이더리움 블록체인의 특정 주소에 존재하는 코드(함수들)와 데이터(상태)의 집합입니다. [constructor](https://solidity.readthedocs.io/en/latest/contracts.html#constructor)와  [memory](https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#storage-memory-and-the-stack)에 대한 자세한 내용은 각 문서를 참고하세요.
+솔리디티에서 컨트랙트는 이더리움 블록체인의 특정 주소에 존재하는 코드(함수들)와 데이터(상태)의 집합입니다. [constructor](https://solidity.readthedocs.io/en/latest/contracts.html#constructor)와 [memory](https://solidity.readthedocs.io/en/latest/introduction-to-smart-contracts.html#storage-memory-and-the-stack)에 대한 자세한 내용은 각 문서를 참고하세요.
 
 ## 스마트 컨트랙트 컴파일하기
 
@@ -58,9 +58,9 @@ contract HelloWorld {
 
 <img src="https://user-images.githubusercontent.com/93580180/182833004-bd530c91-adb4-4b8c-a87b-70139ef75e35.png" alt="img" style={{zoom:"80%"}}/>
 
-## 메타마스크 설정하고 계정 채워넣기
+## 메타마스크 설정하고 계정 충전하기
 
-이제 우리는 BNB 스마트 체인 네트워크에 스마트 컨트랙트를 배포해야 합니다. 이를 위해 우리는 Web3 세계에 연결해야 합니다. 이것은 메타마스크, 브레이브, 포티스 등과 같은 서비스를 통해 가능합니다. 여기서는 메타마스크를 사용할 예정입니다. BSC에서 사용할 메타마스크 지갑을 구성하려면 [메타마스크 계정 설정 튜토리얼](wallet/metamask.md)을 따르십시오.
+이제 BNB 스마트 체인 네트워크에 스마트 컨트랙트를 배포해야 합니다. 이를 위해 Web3 세계에 연결해야 합니다. 이것은 메타마스크, 브레이브, 포티스 등과 같은 서비스를 통해 가능합니다. 여기서는 메타마스크를 사용할 예정입니다. BSC에서 사용할 메타마스크 지갑을 구성하려면 [메타마스크 계정 설정 튜토리얼](wallet/metamask.md)을 따르십시오.
 
 
 - 메타마스크를 열고 네트워크 드롭다운에서 Custom RPC를 선택합니다.
@@ -102,13 +102,13 @@ contract HelloWorld {
 
 <img src="https://user-images.githubusercontent.com/93580180/182833162-4aff06eb-9d20-41c0-a5b6-df996db41a1c.png" alt="img" style={{zoom:"80%"}}/>
 
-- 4단계: 메타마스크가 Remix에 연결되면 "Deploy" 버튼을 클릭합니다. 트랜잭션 확인이 필요한 다른 메타마스크 팝업이 생성됩니다.
+- 4단계: 메타마스크가 Remix에 연결되면 "Deploy" 버튼을 클릭합니다. 트랜잭션 확인을 요구하는 메타마스크 팝업이 생성됩니다.
 
 <img src="https://user-images.githubusercontent.com/93580180/182833376-8497b8c8-1edf-4f9f-a586-acfbe20ab696.png" alt="img" style={{zoom:"80%"}}/>
 
-**축하합니다!** BSC 테스트넷에 간단한 스마트 컨트랙트를 배포했습니다. 이제 스마트 컨트랙트와 상호 작용할 수 있습니다. 배포 상태는 여기에서 확인하십시오. < https://testnet.bscscan.com/ >
+**축하합니다!** BSC 테스트넷에 간단한 스마트 컨트랙트를 배포했습니다. 이제 스마트 컨트랙트를 사용할 수 있습니다. 배포 상태는 여기에서 확인하세요. < https://testnet.bscscan.com/>
 
-# BscScan에서 배포된 컨트랙트를 flatten시키고 확인합니다.
+# BscScan에서 배포된 컨트랙트를 flatten하고 확인합니다.
 
 가장 중요한 첫 번째 단계는 [BscScan](https://testnet.bscscan.com/)에서 확인할 수 있도록 솔리디티 컨트랙트를 단일 파일로 flatten하는 것입니다.
 
