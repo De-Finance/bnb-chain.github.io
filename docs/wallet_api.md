@@ -4,29 +4,28 @@ hide_table_of_contents: true
 sidebar_position: 2
 ---
 
-# BNB Wallet API
+# BNB 월렛 API
 
-BInance Extension Wallet injects a global API into websites visited by its users at `window.BinanceChain`.
+바이낸스 익스텐션 월렛은 웹사이트 방문자들에게 `window.BinanceChain`을 통해 글로벌 API를 주입합니다.
 
-This API specification borrows heavily from API MetaMask provided, considering the massive adoption. So Web3 site developers can easily connect their dApps with the Binance Extension Wallet. The APIs allow websites to request users' BNB Smart Chain addresses, read data from the blockchain the user is connected to, and prompt the users to sign messages and transactions.
+이 API 명세는 널리 도입된 API 메타마스크를 많이 참고하였습니다. Web3 개발자들은 쉽게 dApp을 바이낸스 익스텐션 월렛에 연결시킬 수 있습니다. 이 API들을 통해 웹사이트들은 사용자의 BNB 스마트 체인 주소를 요청하고, 사용자가 연결된 블록체인으로부터 데이터를 읽어오고, 사용자들이 메시지와 트랜잭션에 서명하도록 요청할 수 있습니다.
 
-The presence of the provider object `window.BinanceChain` indicates a Beacon Chain/BNB Smart Chain user.
+provider 객체 `window.BinanceChain`가 존재한다는 것은 비콘 체인/BNB 스마트 체인 사용자임을 나타냅니다.
 
-The API this extension wallet provides includes API specified by [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) and API defined by [MetaMask](https://docs.metamask.io/guide/ethereum-provider.html) (including some massively relied on legacy ones).
+이 익스텐션 월렛이 제공하는 API는 [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193)와 [MetaMask](https://docs.metamask.io/guide/ethereum-provider.html)에서 규정하는 API 및 레거시에 크게 의존하는 것들입니다.
 
-## Development Progress
-Currently (version 1.112.8) as Binance Extension Wallet natively supports Beacon Chain, we are planning to open a series of APIs for dApp developers to interact with Beacon Chain. At the end of the day, most [APIs available in Beacon Chain javascript sdk](https://github.com/bnb-chain/javascript-sdk/tree/master/docs) would be available.
+## 개발 경과
+현재 (버전 1.112.8) 바이낸스 익스텐션 월렛은 자체적으로 비콘 체인을 지원하고 있으며, dApp 개발자들이 비콘 체인과 상호작용할 수 있도록 일련의 API들을 공개할 계획입니다. 결과적으로 [APIs available in Beacon Chain javascript sdk](https://github.com/bnb-chain/javascript-sdk/tree/master/docs) 대부분이 사용 가능해질 것입니다.
 
-Currently, only the following is supported:
+현재 지원되는 것은 다음과 같습니다.
 * [`transfer`](https://github.com/bnb-chain/javascript-sdk/tree/master/docs#transfer-tokens) 
 
-## Difference with MetaMask
+## 메타마스크와의 차이점
+!!! 경고
 
-!!! warning
+    메타마스크와 연동된 Web3 개발자로, 바이낸스 익스텐션 월렛과의 연동에 관심이 있는 경우 이 섹션을 읽어주세요.
 
-    Please read through this section if you are a Web3 developer who has integrated with MetaMask and are interested in integrating with Binance Extension Wallet.
-
-### Inpage injected object
+### 페이지 내 주입된 객체
 
 The biggest difference between Binance Extension Wallet and MetaMask is we inject `BinanceChain` rather than `ethereum` (or `web3`) to the web page. So, users could keep two extensions at the same time.
 

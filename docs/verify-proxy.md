@@ -3,63 +3,65 @@ sidebar_label: Verify Proxy Contracts
 hide_table_of_contents: false
 sidebar_position: 2
 ---
-# How to Verify Proxy Contract
-In this section, we provide a quick guide on how to verify a deployed BEP20 proxy contract.
+# 프록시 컨트랙트 검증하기
+이 섹션에서는 배포된 BEP20 프록시 컨트랙트를 검증하는 방법을 알아보겠습니다.
 
-## Flatten your contract
+## 컨트랙트 flatten하기
 
-### Install flattener
+### flattener 설치하기
 ```
 npm install truffle-flattener -g
 ```
-Run the following command:
+다음 명령어를 실행하세요:
 ```
 $ truffle-flattener BEP20TokenImplementation.sol > BEP20TokenImplementationFlattened.sol
 $ truffle-flattener BEP20UpgradeableProxy.sol > BEP20UpgradeableProxyFlattened.sol"
 ```
-## Compile and deploy your contract with Remix
+## Remix를 사용하여 컨트랙트를 컴파일하고 배포하세요
 
-### Compile Implementation contract
+### 구현 컨트랙트 컴파일하기
 
-- Open Remix IDE: [https://remix.ethereum.org](https://remix.ethereum.org/)
-- Select solidity language
-- Create new contract `BEP20Token.sol` and copy contract code from flattened `BEP20TokenImplementationFlattened.sol`
-- Compile the implementation contract
-- Click on this button to switch to the compile page
-  - Select “BEP20TokenImplementation” contract
-  - Enable “Auto compile” and “optimization”
-  - Click “ABI” to copy the contract abi and save it.
-### Deploy the implementation contract
-- Select “Injected Web3”
-- Select “BEP20TokenImplementation” contract
-- Click the “Deploy” button and Metamask will pop up
-- Click the “confirm” button to sign and broadcast the transaction to BSC.
-- Then, you need to initialize the token: fill in all the parameters and click on “transact”
+- Remix IDE를 엽니다: [https://remix.ethereum.org](https://remix.ethereum.org/)
+- 솔리디티 언어를 선택합니다.
+- 새로운 `BEP20Token.sol` 컨트랙트를 열고 flatten된 `BEP20TokenImplementationFlattened.sol`에서 컨트랙트 코드를 복사합니다.
+- 구현 컨트랙트를 컴파일합니다.
+- 이 버튼을 클릭하여 컴파일 페이지로 이동합니다.
+  - “BEP20TokenImplementation” 컨트랙트를 선택합니다.
+  - “Auto compile”과 “optimization”을 활성화합니다.
+  - “ABI”를 클릭하여 컨트랙트 abi를 복사하고 저장합니다.
+### 구현 컨트랙트 배포하기
+- “Injected Web3”를 선택합니다.
+- “BEP20TokenImplementation” 컨트랙트를 선택합니다.
+- “Deploy”를 클릭하면 메타마스크가 나타납니다.
+- “Confirm”을 클릭하여 서명하고, BSC에 트랜잭션을 전파합니다.
+- 그리고 토큰을 초기화합니다: 모든 파라미터를 채워넣고 “transact”를 클릭합니다.
 
 <img src="https://lh3.googleusercontent.com/SjMHLYY9A1LtFXJFc2gtIOL_lEzZk--eiJyNspL-8qfDvkfNYGAgGKvodCo0-Pfp3UhmrPGUc4oOpFFuDBzYhLxqN3-LIAW7BRKdeoiPdYuJMep0hT67ifNw0i33DzVXNfzPjwZi"alt="img" style={{zoom:"50%"}}/>
 
-> Note: `Owner` should be the address who send the deploy transaction before.
+> 참고: `Owner`는 이전에 배포 트랜잭션을 보낸 주소여야 합니다.
 
-- Click on the “Copy” icon to save the initializatioin data: Like the following: ```
+- “Copy”를 클릭하여 다음과 같이 초기화 데이터를 저장합니다: ```
 
 
 ```
 0xef3ebcb800000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000001200000000000000000000000000000000000000000000000000000000000f42400000000000000000000000000000000000000000000000000000000000000001000000000000000000000000fc41d5571120442d1bb82cea0884966e543cb78b000000000000000000000000000000000000000000000000000000000000000548656c6c6f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000548454c4c4f000000000000000000000000000000000000000000000000000000
 ```
 
-- Confirm your transaction in MetaMask
+- 메타마스크에서 트랜잭션을 확인합니다.
 
 
 <img src="https://lh5.googleusercontent.com/kPAo0FyEgt0vNDkBMxIHNIFqdq0mP4BhFT21vXvusa8-wlP-BXr4FcHjYV-NZEuQZrgwq74fV2oXAKIrAovpXi7KHChXtowSI3sbu5wTQL-_3-x8Qd-6-z7xRDkRXzJZLcakxrR3" alt="img" style={{zoom:"40%"}}/>
 
-## Compile Proxy Contract
+## 프록시 컨트랙트 컴파일하기
 
-- Create new contract proxy.sol and copy contract code from flattened `BEP20UpgradeableProxyFlattened.sol `.  Here is and [example](https://bscscan.com/address/0xA6Ec2Fe4F6040b188A926048f44c9A59Fca189d4#code)
-- Compile the proxy contractClick on this button to switch to the compile page
-  - Select “BEP20UpgradeableProxy” contract
-  - Enable “Auto compile” and “optimization”Click “ABI” to copy the contract abi and save it.
+- 새로운 컨트랙트 proxy.sol를 생성하고 flatten된 `BEP20UpgradeableProxyFlattened.sol`에서 컨트랙트 코드를 복사합니다. 여기 [예시](https://bscscan.com/address/0xA6Ec2Fe4F6040b188A926048f44c9A59Fca189d4#code)를 참고하세요.
+- 구현 컨트랙트를 컴파일합니다.
+- 이 버튼을 클릭하여 컴파일 페이지로 이동합니다.
+  - “BEP20UpgradeableProxy” 컨트랙트를 선택합니다.
+  - “Auto compile”과 “optimization”을 활성화합니다.
+  - “ABI”를 클릭하여 컨트랙트 abi를 복사하고 저장합니다.
 
-### Deploy the proxy contract
+### 프록시 컨트랙트 배포하기
 
 - Select “Injected Web3”Select “BEP20UpgradeableProxy.sol” contract
 - Fill in the parameters
