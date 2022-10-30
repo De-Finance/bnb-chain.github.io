@@ -99,7 +99,7 @@ unzip testnet.zip
 geth --datadir node init genesis.json
 ```
 
-다음과 같은 아웃풋을 볼 수 있습니다:
+다음과 같은 결과를 볼 수 있습니다:
 
 ```
 INFO [05-19|14:53:17.468] Allocated cache and file handles         database=/Users/huangsuyu/Downloads/bsc/node/geth/chaindata cache=16.00MiB handles=16

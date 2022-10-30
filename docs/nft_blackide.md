@@ -4,83 +4,77 @@ hide_table_of_contents: false
 sidebar_position: 2
 ---
 
-# Using Black IDE to Deploy NFTs on BSC
+# Black IDE를 사용하여 BSC에 NFT 배포하기
 
-In this tutorial, we provide a step-by-step guide to the readers on how to issue Non-fungible tokens (NFTs) (ERC721/1155) on the BNB Smart Chain (BSC) Testnet using the Black IDE. This is a detailed guide to learning how to issue, mint and transfer NFTs on the BSC Testnet. The technology stack used in this tutorial includes Solidity , Truffle, MetaMask, and BlackIDE. 
+이 튜토리얼에서는 Black IDE를 사용하여 BNB 스마트 체인(BSC) 테스트넷에 NFT(Non-funcible Token)(ERC721/1155)를 발행하는 방법에 대한 단계별 가이드를 독자에게 제공합니다. 이 문서는 BSC 테스트넷에서 NFT를 발행 및 양도하는 방법을 자세히 안내합니다. 이 튜토리얼에 사용되는 기술 스택에는 솔리디티, Truffle, MetaMask 및 Black IDE가 포함됩니다.
 
-## Learning Takeaways:
-This tutorial will help you gain knowledge on the following learning points:
--	Using BlackIDE for smart contract development;
--	Managing Keypairs and Funding BNB Tokens to your account on BlackIDE;
--	MetaMask Wallet connectivity to BSC Testnet;
--	Smart-contract development;
--	Issuing, minting, and transferring NFTs;
+## 학습 요점:
+이 튜토리얼은 다음 학습 요점에 대한 지식을 얻는 데 도움이 됩니다.
+- 스마트 컨트랙트 개발을 위한 Black IDE
+- 키쌍을 관리하고 Black IDE의 계정에 BNB 토큰을 전송하기
+- BSC 테스트넷에 메타마스크 연결입니다.
+- 스마트 컨트랙트 개발
+- NFT를 발행, 민팅 및 양도
 
-## Technology Stack Details
+## 기술 스택 세부
 -	BlackIDE v0.15.4
 -	Truffle v5.5.19 (core: 5.5.19)
 -	MetaMask Wallet v10.16.1
 -	Docker v20.10.14
 
-## Brief Introduction Tech Stack
-1.	**Solidity:** one of the most popular object-oriented high-level smart contract programming languages. For more details on Solidity, refer here.
-2.	**MetaMask Wallet Browser Extension:** we recommend using the Metamask Chrome extension. It is a web wallet that allows connecting the chrome browser to any valid blockchain network.
-3.	**Black IDE:** Black IDE is an integrated development environment (IDE), making developing EVM-compatible smart contracts faster and easier. Black IDE offers both desktop and web (Black IDE Web) applications.
+## 간단한 기술 스택 소개
+1. **솔리디티:** 가장 인기 있는 객체 지향 고급 스마트 계약 프로그래밍 언어 중 하나입니다. 솔리디티에 대한 자세한 내용은 여기를 참조하십시오.
+2. **메타마스크 지갑 브라우저 익스텐션:** 메타마스크 크롬 확장을 사용하는 것이 좋습니다. 이것은 크롬 브라우저를 유효한 블록체인 네트워크에 연결할 수 있는 웹 지갑입니다.
+3. **Black IDE:** Black IDE는 통합 개발 환경(IDE)으로, EVM 호환 스마트 계약을 더 빠르고 쉽게 개발할 수 있습니다. Black IDE는 데스크톱 및 웹(Black IDE Web) 응용 프로그램을 모두 제공합니다.
 
-## Setting up the Environment
-We aim to keep this tutorial as simple as possible and hence tend to use as minimal resources as possible and have used the following tools in this tutorial.
-*	Metamask Wallet
-*	Ensure that you have the Metamask Wallet extension installed and running on our browser.
-*	Configure the Metamask wallet for use with the BSC Testnet. Use the following details to add the BSC Testnet. For further details, refer here.
-*	Network Name: BSC Testnet
-*	RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
-*	Chain ID: 97
-*	Currency Symbol: BNB
-*	Block Explorer URL: https://testnet.bscscan.com 
-*	Black IDE: both desktop app and web app are available and it is up to your convenience to choose from. For this tutorial, we used the desktop app as the web app lacks support for importing OpenZeppelin Contracts. 
-*	Download/Install any dependencies required by BlackIDE
+## 환경 설정하기
+이 튜토리얼은 가능한 한 단순하게 유지하는 것이 목표이므로 리소스를 최대한 적게 사용합니다. 다음과 같은 도구를 사용했습니다.
+* 메타마스크 지갑
+* 브라우저에서 메타마스크 지갑 익스텐션이 설치되어 실행 중인지 확인하십시오.
+* BSC 테스트넷과 함께 사용할 수 있도록 메타마스크 지갑을 구성합니다. 다음 세부 정보를 사용하여 BSC 테스트넷을 추가합니다. 자세한 내용은 여기를 참조하십시오.
+* 네트워크 이름: BSC 테스트넷입니다.
+* RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
+* 체인 ID: 97
+* 통화 기호: BNB
+* 블록 탐색기 URL: https://testnet.bscscan.com 
+* Black IDE: 데스크톱 앱과 웹 앱을 모두 사용할 수 있으며 사용자의 편의에 따라 선택할 수 있습니다. 웹 앱은 OpenZeppelin 컨트랙트를 가져오기를 지원하지 않기 때문에 이 튜토리얼에서는 데스크톱 앱을 사용했습니다. 
+* BlackIDE에 필요한 디펜던시를 다운로드/설치합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177942609-e2c942a6-342c-46cd-b794-92fc8e72bdc0.png)
 
-## Login into Black IDE
-1.	Open the Black IDE desktop application. We will be using it for compiling and deploying our smart contract for NFTs on the BSC Testnet.
-2.	Click on the Login button and authorize using your GitHub account.
+## Black IDE에 로그인하기
+1. Black IDE 데스크톱 애플리케이션을 엽니다. BSC 테스트넷에서 NFT에 대한 스마트 컨트랙트를 컴파일하고 배포하는 데 사용할 것입니다.
+2. 로그인 버튼을 클릭하고 GitHub 계정을 사용하여 인증합니다.
 
-![image](https://user-images.githubusercontent.com/93580180/177942736-d3d79717-8952-4fc7-b7c2-b28dc978f277.png)
 
-## Create New Project
-3.	Click on the New button next to the projects to create a new project. 
+## 새 프로젝트 생성하기
+3. 프로젝트 옆에 있는 New 버튼을 클릭하여 새 프로젝트를 만듭니다. 
 
-![image](https://user-images.githubusercontent.com/93580180/177942931-510837df-ed97-4a8e-a4df-cc4aeca24294.png)
+4. 장치에서 프로젝트를 저장할 위치(예: "BSC-NFT")를 지정하고 드롭다운 목록에서 프로젝트 유형을 "Basics - ERC20, ERC721, & ERC1155(v31+)"로 선택합니다. 그런 다음 Create 버튼을 클릭하여 프로젝트를 생성합니다.
 
-4.	Specify the location where you want to save your project on your device, the project name, e.g. “BSC-NFT”, and select the project type from the dropdown list as “Basics- ERC20, ERC721, & ERC1155 (v31+)”. Then click the Create button to create the project.
 
-![image](https://user-images.githubusercontent.com/93580180/177942969-a1e8170f-e806-44d5-9e9f-99e5cc2914f8.png)
+5. 이 튜토리얼의 스마트 컨트랙트는 샘플일 뿐이며 언제든지 수정하고 개선할 수 있습니다.
 
-5.	Remember the smart contract in this tutorial is just a sample, you can always modify and be innovative.
+## 스마트 컨트랙트 생성하기
+6. 컨트랙트 메뉴를 확장하고 기본 파일을 삭제합니다. 
 
-## Smart Contract Creation 
-6.	Expand the contracts menu and delete the default files. 
 
-![image](https://user-images.githubusercontent.com/93580180/177948005-436776e5-07b4-4109-8b19-897925e623e4.png)
+7. 컨트랙트 메뉴를 마우스 오른쪽 버튼으로 클릭하고 새 파일을 선택합니다. 파일 이름(예: BSC-NFT.sol)을 지정한 다음 만들기 단추를 클릭합니다.
 
-7.	Right-click on the contracts menu and select New File. Specify a name for your file, e.g., BSC-NFT.sol, and then click Create button.
 
-![image](https://user-images.githubusercontent.com/93580180/177943065-cc591abd-d856-4c9c-bbef-94b2e826af7f.png)
-
-## Write your smart contract code
-8.	Copy the following code into your smart contract file. We have used the contract code from this [repo](https://github.com/RumeelHussainbnb/ERC721_NFT/blob/main/BSC-NFT.sol).
-9.	Remember to change the ```MINT_PRICE```, ```MAX_SUPPLY```, ```name```, and ```symbol``` of the token as per your need. Also, remember to change the ```_baseURI``` as per your token.
+## 스마트 컨트랙트 코드 작성
+8. 다음 코드를 스마트 컨트랙트 파일에 복사합니다. 우리는 이[repo](https://github.com/RumeelHussainbnb/ERC721_NFT/blob/main/BSC-NFT.sol)의 계약 코드를 사용했습니다.
+9. 필요에 따라 토큰의 ```MINT_PRICE```, ```MAX_SUPPLY```, ```name```, ```symbol```을 변경하세요. 또한 토큰에 따라 ```_baseURI``를 변경해야 합니다.
 10.	
 ![image](https://user-images.githubusercontent.com/93580180/177949895-a095fdb5-f770-4530-84f6-8854a0d7a5eb.png)
 
-## Edit default project settings
-10.	Click on the config.json file to change the default setting. Change the main file name to the name of your contract, BSC-NFT.sol in our case. Similarly, change the name of the smart contract to deploy, BSCNFT.json in our case. 
+## 기본 프로젝트 설정 편집
+10. config.json 파일을 클릭하여 기본 설정을 변경합니다. 우리의 경우 메인 파일 이름을 컨트랙트 이름인 BSC-NFT.sol로 변경합니다. 마찬가지로 배포할 스마트 컨트랙트 이름(이 경우 BSCNFT.json)을 변경하십시오. 
 
-![image](https://user-images.githubusercontent.com/93580180/177948095-b6a905da-792c-47da-86d6-8a5d5db6a40b.png)
+
  
-## Connect the Black IDE to the BSC Testnet
-11.	In order to connect the Black IDE to the BSC Testnet, click on the dropdown icon on the network menu in the top right corner and then select Testnet under the BNB Chain label.
+## Black IDE를 BSC 테스트넷에 연결하기
+11. Black IDE를 BSC 테스트넷에 연결하려면 오른쪽 상단 모서리에 있는 네트워크 메뉴에서 드롭다운 아이콘을 클릭한 다음 BNB 체인 레이블에서 테스트넷을 선택합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177948186-e052e522-7069-4072-abae-fd0e6c819ee6.png)
 

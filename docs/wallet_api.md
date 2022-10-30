@@ -124,9 +124,9 @@ render(
 )
 
 ```
-## Chain IDs
+## 체인 ID
 
-!!! warning
+!!! 경고
 
     At the moment, the [`BinanceChain.chainId`](#ethereum-chainid) property and the [`chainChanged`](#chainchanged) event should be preferred over the `eth_chainId` RPC method.
 
@@ -138,14 +138,14 @@ render(
 
 These are the IDs of the BNB Smart Chains that Binance Extension Wallet supports by default.
 
-| Hex  | Decimal | Network                                        |
+| Hex  | Decimal | 네트워크                                        |
 | ---- | ------- | ---------------------------------------------- |
 | 0x38 | 56      | BNB Smart Chain Main Network (bsc-mainnet) |
 | 0x61 | 97      | BNB Smart Chain Test Network (bsc-testnet) |
 
 This API can also return chain ids of Beacon Chains if users switch to them. The possible return value would be:
 
-| Chain Id             | Network                                  |
+| 체인 Id             | 네트워크                                  |
 | -------------------- | ---------------------------------------- |
 | Binance-Chain-Tigris | Beacon Chain Main Network (bbc-mainnet) |
 | Binance-Chain-Ganges | Beacon Chain Test Network (bbc-testnet) |
@@ -209,7 +209,7 @@ interface RequestArguments {
 BinanceChain.request(args: RequestArguments): Promise<unknown>;
 ```
 
-#### Example
+#### 예시
 
 The code snippet below is as same as [MetaMask's example](https://docs.metamask.io/guide/ethereum-provider.html#example), the only difference is we injected a different object.
 
@@ -571,11 +571,11 @@ You can think of these signatures as follows:
    - `eth_uninstallFilter`
    - `net_version`
 
-## Legacy Events
+## 레거시 이벤트
 
 ### close (DEPRECATED)
 
-Please refer to [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#close-deprecated), the only difference is we injected a different object.
+[MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#close-deprecated)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
 ```typescript
 BinanceChain.on('close', handler: (error: Error) => void);
@@ -583,7 +583,7 @@ BinanceChain.on('close', handler: (error: Error) => void);
 
 ### chainIdChanged (DEPRECATED)
 
-Please refer to [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#chainidchanged-deprecated), the only difference is we injected a different object.
+[MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#chainidchanged-deprecated)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
 ```typescript
 BinanceChain.on('chainChanged', handler: (chainId: string) => void);
@@ -591,7 +591,7 @@ BinanceChain.on('chainChanged', handler: (chainId: string) => void);
 
 ### networkChanged (DEPRECATED)
 
-Please refer to [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#networkchanged-deprecated), the only difference is we injected a different object.
+[MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#networkchanged-deprecated)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
 ```typescript
 BinanceChain.on('networkChanged', handler: (networkId: string) => void);
@@ -599,7 +599,7 @@ BinanceChain.on('networkChanged', handler: (networkId: string) => void);
 
 ### notification (DEPRECATED)
 
-Please refer to [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#notification-deprecated), the only difference is we injected a different object.
+[MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#notification-deprecated)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
 ```typescript
 BinanceChain.on('notification', handler: (payload: any) => void);
