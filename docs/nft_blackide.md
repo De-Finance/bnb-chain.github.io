@@ -78,31 +78,28 @@ sidebar_position: 2
 
 ![image](https://user-images.githubusercontent.com/93580180/177948186-e052e522-7069-4072-abae-fd0e6c819ee6.png)
 
-12.	Click on the ![image](https://user-images.githubusercontent.com/93580180/177943789-3557fde5-8805-4b03-ace8-05d2ace216c0.png) icon in the bottom left corner of the IDE to generate new keypair to perform transactions. You can skip this step if you already have generated a keypair. On the Keypair Manager, click on the CREATE button to generate new keypair.
+12. IDE 왼쪽 하단에 있는. ![image](https://user-images.githubusercontent.com/93580180/177943789-3557fde5-8805-4b03-ace8-05d2ace216c0.png) 아이콘을 클릭하여 트랜잭션을 수행할 새 키 쌍을 생성합니다. 키 쌍을 이미 생성한 경우 이 단계를 건너뛸 수 있습니다. 키 쌍 관리자에서 CREATE 버튼을 클릭하여 새 키 쌍을 생성합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944146-eb6e2f1e-95f0-4b00-8458-c8145b008d15.png)
 
-13.	Specify your desired name for the keypair, in our case BSC-Testnet-Key. Then click on the CREATE button. Remember to keep your private keys securely and not share them with anyone.
+13. 키 쌍의 원하는 이름을 지정하십시오(이 경우 BSC-Testnet-Key). 그런 다음 CREATE 버튼을 클릭합니다. 개인 키는 안전하게 보관하고 다른 사람과 공유하지 마십시오.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944170-fa9ed3bc-53d9-41f3-8a46-a07f56fee1d7.png)
 
-## Acquire BNB Test Tokens
-*	Initially, the balance of a newly created key pair is 0.0 ETH. To get BNB test tokens, you can use the [BSC Testnet Faucet](https://testnet.binance.org/faucet-smart/).
-*	Copy your public address from the keypair manager
+## BNB 테스트 토큰 받기
+* 처음에 새로 생성된 키 쌍의 잔액은 0.0 ETH입니다. BNB 테스트 토큰을 받으려면 [BSC Testnet Tipe](https://testnet.binance.org/faucet-smart/)를 이용하면 됩니다.
+* 키 쌍 관리자에서 퍼블릭 주소를 복사합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944290-d06f2f06-e256-4110-8936-809c0f78e0fa.png)
 
-*	Paste this on the facet and acquire test tokens as required, as shown below. A green pop-up is displayed on the successful transfer of test tokens.
+* 아래 그림과 같이 포셋에 붙여넣고 필요에 따라 테스트 토큰을 획득합니다. 테스트 토큰이 성공적으로 전송되면 녹색 팝업이 표시됩니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944333-ca8aefed-fec2-4271-aa3e-d2ccc301eb6c.png)
  
-*	 Close and re-open keypair manager to verify that the balance has been updated. Wait for approx. 1-2 mins for balance to get updated.
+*  키 쌍 관리자를 닫았다가 다시 열어 잔액이 업데이트되었는지 확인합니다. 잔액이 업데이트될 때까지 1~2분 정도 기다리세요.
 
-![image](https://user-images.githubusercontent.com/93580180/177944370-3aa70613-be45-4558-8c83-aca1a00557c3.png)
-
-## Deploy Smart Contract on BSC Testnet
-1.	Select the appropriate Solidity compiler version from the bottom right corner of the IDE, Solc (0.8.4), ![image](https://user-images.githubusercontent.com/93580180/177944415-e733562a-54ad-4ed8-85a5-f17c79edfeac.png)
-in our case. 
+## BSC 테스트넷에 스마트 컨트랙트 배포하기
+1. IDE의 오른쪽 하단 모서리에 있는 Solc (0.8.4) 에서 적절한 솔리디티 컴파일러 버전을 선택합니다. 이 경우 ![image](https://user-images.githubusercontent.com/93580180/177944415-e733562a-54ad-4ed8-85a5-f17c79edfeac.png)입니다. 
 2.	Click on the Build icon ![image](https://user-images.githubusercontent.com/93580180/177944483-ff523eed-017d-4265-b722-78ded06fe826.png) to build your smart contract. Upon successful build, the project navigation pane reflects a new folder named build. This folder contains contracts folder that has json files of the contracts built. All of the contracts imported in our BSCNFT contract are also built and imported as json files. 
 
 ![image](https://user-images.githubusercontent.com/93580180/177948331-ece850ae-01fd-479b-b25f-d1f28c3400f6.png)
