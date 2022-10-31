@@ -172,7 +172,7 @@ This API can also return chain ids of Beacon Chains if users switch to them. The
 
 [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#ethereum-autorefreshonnetworkchange)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
-이 행동을 비활성화하려면 provider 탐지한 직후 이 속성을 `false`로 설정하세요.
+이 행동을 비활성화하려면 제공자를 탐지한 직후 이 속성을 `false`로 설정하세요.
 
 ```javascript
 BinanceChain.autoRefreshOnNetworkChange = false;
@@ -402,7 +402,7 @@ BinanceChain.on('message', handler: (message: ProviderMessage) => void);
 
 [MetaMask Doc](https://docs.metamask.io/guide/ethereum-provider.html#errors)를 참고하세요. 유일한 차이점은 다른 객체를 주입했다는 것입니다.
 
-## Provider 사용하기
+## 제공자 사용하기
 
 이 부분은 web3 사이트의 가장 대표적인 세 가지 요구 사항을 충족하는 법을 설명합니다.
 
