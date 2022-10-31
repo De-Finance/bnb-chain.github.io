@@ -100,70 +100,65 @@ sidebar_position: 2
 
 ## BSC 테스트넷에 스마트 컨트랙트 배포하기
 1. IDE의 오른쪽 하단 모서리에 있는 Solc (0.8.4) 에서 적절한 솔리디티 컴파일러 버전을 선택합니다. 이 경우 ![image](https://user-images.githubusercontent.com/93580180/177944415-e733562a-54ad-4ed8-85a5-f17c79edfeac.png)입니다. 
-2.	Click on the Build icon ![image](https://user-images.githubusercontent.com/93580180/177944483-ff523eed-017d-4265-b722-78ded06fe826.png) to build your smart contract. Upon successful build, the project navigation pane reflects a new folder named build. This folder contains contracts folder that has json files of the contracts built. All of the contracts imported in our BSCNFT contract are also built and imported as json files. 
+2. 빌드 아이콘![image](https://user-images.githubusercontent.com/93580180/177944483-ff523eed-017d-4265-b722-78ded06fe826.png)을 클릭하여 스마트 컨트랙트를 구축합니다. 빌드에 성공하면 프로젝트 탐색 창에 빌드라는 새 폴더가 반영됩니다. 이 폴더에는 컨트랙트의 json 파일이 빌드된 컨트랙트 폴더가 포함되어 있습니다. 우리의 BSCNFT 컨트랙트에서 가져온 모든 컨트랙트도 json 파일로 옵니다.
 
-![image](https://user-images.githubusercontent.com/93580180/177948331-ece850ae-01fd-479b-b25f-d1f28c3400f6.png)
+3. 컨트랙트를 성공적으로 구축했으니 이제 배포할 수 있습니다. 스마트 컨트랙트를 배포하려면 배포 아이콘![image](https://user-images.githubusercontent.com/93580180/177944540-10d86198-03f2-40d8-8ac0-c013483c6458.png)을 클릭하십시오. 아래 그림과 같이 컨트랙트에 대한 세부 정보를 지정한 다음 Estimate & Deploy 버튼을 클릭합니다. 마법사가 자동으로 견적을 내고 컨트랙트에 대한 가스 한도를 채웁니다. 그런 다음 Deploy 버튼을 클릭합니다. 
 
-3.	After successfully building your contract, it’s time to deploy the contract. Click on the Deploy icon ![image](https://user-images.githubusercontent.com/93580180/177944540-10d86198-03f2-40d8-8ac0-c013483c6458.png) for deploying your smart contract. Specify the details for your contract, as shown below, then click on the Estimate & Deploy button. The wizard will auto-estimate and fill the gas limit for your contract. Then click the Deploy button. 
-
-![image](https://user-images.githubusercontent.com/93580180/177944618-47b0fb1d-0ce3-4512-9b29-66f7a3416325.png)
-![image](https://user-images.githubusercontent.com/93580180/177944632-839f7ac5-c9d5-4d80-b6fe-0b6be2e6c3fb.png)
-
-4.	Deployment details will pop-up, as shown in the figure below.
+4. 아래 그림과 같이 배포 세부 정보가 팝업됩니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944726-41c20038-1fc5-434a-b61f-be54f36f3ac6.png)
 
-5.	The status of the transaction will be updated to confirmed after the transaction is confirmed as shown in the figure below
+5. 아래 그림과 같이 트랜잭션 확인 후 트랜잭션 상태가 업데이트되어 확인 가능합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944768-dc622464-832f-4afd-8ccd-0529c675d46d.png)
 
-6.	You can also view this transaction by clicking on the transaction icon in the bottom left on the IDE.
+6. IDE 왼쪽 하단의 트랜잭션 아이콘을 클릭하여 이 트랜잭션을 볼 수도 있습니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177944786-8b7f3e34-e562-406b-890e-dcc22d48313f.png)
 
-## Interact with deployed smart contract and Mint NFTs
-1.	You can also interact with the contract using the different functions. Click on the Transactions Icon on the bottom-left corner of the IDE and then transaction of deployment of your smart contract. On the transaction details, click on the contract address to access the functions to interact with the smart contract. The left most column has all the Write Functions. The middle column has the View Functions and the right most column has the Events details.
+## 배포된 스마트 컨트랙트 및 Mint NFT와 상호 작용하기
+1. 다른 기능을 사용하여 컨트랙트와 상호 작용할 수도 있습니다. IDE의 좌측 하단에 있는 트랜잭션 아이콘을 클릭한 다음 스마트 컨트랙트 배포 트랜잭션을 클릭합니다. 트랜잭션 내역에서 컨트랙트 주소를 클릭하면 스마트 컨트랙트와 상호 작용하는 기능에 접속할 수 있습니다. 맨 왼쪽 열에는 모든 쓰기 기능들이 있습니다. 가운데 열에는 보기 기능들이 있고, 맨 오른쪽 열에는 이벤트 세부 정보가 있습니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177948835-197860e5-8f25-4692-bc34-467a997f98a1.png)
  
-## Mint NFTs
-1.	As per our smart contract, when the contract is deployed, unless the NFTs are minted they won’t be visible in the wallet. 
-2.	Create another keypair as defined previously. We will be issuing i.e. minting NFTs to the public address of this new keypair.
-3.	To mint i.e. issue an NFT to a specific user we use the “safeMint” function of the deployed smart contract. As shown in Steps 1 and 2 in the figure below, navigate to the deployed contracts, then in the left-most column click the drop-down menu to view the list of write functions available for use with the deployed contract. Select the “safeMint” function. 
-4.	Use the safeMint function to mint new NFTs to a specific user address. As shown in figure above, steps 3 to 6, enter the “ETH to send” as the minting price of NFT, as per our smart contract the minting price is 50000000000000000 Wei, i.e., 0.05 ETH. We entered 0.06 ETH to cover the transaction charges as well. Then select the address to whom you want to issue (mint) an NFT to. Here, for the To address use the newly generated keypair in the section above. After this, click the transact button  to execute the safeMint function. For the Signer, ensure that you are using the account that was used to deploy the smart contract. 
+## NFT 민팅하기
+1. 스마트 컨트랙트에 따라 컨트랙트가 배포될 때 NFT가 발행되지 않았다면 지갑에는 표시되지 않습니다. 
+2. 이전에 정의된 대로 키 쌍을 만듭니다. 이 새로운 키 쌍의 퍼블릭 주소로 NFT를 발행할 것입니다.
+3. 특정 사용자에게 NFT를 발행하기 위해 배포된 스마트 계약의 "safeMint" 함수를 사용합니다. 아래 그림의 1단계와 2단계와 같이 배포된 컨트랙트로 이동한 다음 가장 왼쪽 열에서 드롭다운 메뉴를 클릭하여 배포된 계약에서 사용할 수 있는 쓰기 기능 목록을 확인합니다. "safeMint" 함수를 선택합니다. 
+4. safeMint 함수를 사용하여 새 NFT를 특정 사용자 주소로 만듭니다. 위 그림에서 보는 바와 같이 3~6단계에서는 NFT의 민팅 가격으로 "보낼 ETH"를 입력합니다. 스마트 컨트랙트에 따라 민팅 가격은 5000000000000 Wei, 즉 0.05 ETH입니다. 0.06 ETH를 입력하여 트랜잭션 비용도 부담했습니다. 그런 다음 NFT를 발행(민트)할 대상 주소를 선택합니다. 받는 사람 주소의 경우 위 섹션에서 새로 생성된 키 쌍을 사용합니다. 그런 다음 트랜잭션 버튼을 클릭하여 safeMint 함수를 실행합니다. 서명자의 경우 스마트 컨트랙트를 배포하는 데 사용된 계정인지 확인하세요.
 
 ![image](https://user-images.githubusercontent.com/93580180/177949113-3de5d538-852f-4a21-aa75-47d0231b6521.png)
 
-5.	To confirm what transfers have occurred, execute the Transfer event from the right most column. This will display the list of NFT transfers along with NFT token id, as shown in the figure below.
+5. 어떤 전송이 발생했는지 확인하려면 맨 오른쪽 열에서 전송 이벤트를 실행합니다. 아래 그림과 같이 NFT 토큰 ID와 함께 NFT 전송 목록이 표시됩니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177945187-4e426ba2-a63f-4648-a259-fc9506ab5cb1.png)
 
-6.	To confirm owner of an NFT, use the ownerOf function. Pass the token id as input to the function, as illustrated in the figure below.
+6. NFT의 소유자를 확인하려면 ownerOf 함수를 사용합니다. 아래 그림과 같이 토큰 ID를 함수에 전달합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177945228-3a984146-dfa5-4a7b-9306-6258e9990f2a.png)
 
-## View Your NFTs in Metamask Wallet
-1.	On the receiving end, the user can import the NFT token details into their Metamask wallet to view the assets. Please note that currently, Metamask Web Extension does not support the use of NFTs however, the mobile app version does support it. For the next steps to view the owned NFTs in your Metamask wallet, we will be using the Metamask Mobile Application.
-2.	Open Keypair manager on the Black IDE and copy the private key of the keypair that you minted i.e., transfer NFT.
+## 메타마스크에서 NFT 확인하기
+1. 수신하자는 NFT 토큰 세부 정보를 메타마스크 지갑으로 가져와 자산을 볼 수 있습니다. 현재 메타마스크 웹 익스텐션은 NFT 사용을 지원하지 않지만 모바일 앱 버전은 지원합니다. 메타마스크 지갑에 있는 소유 NFT를 보기 위한 다음 단계는 메타마스크 모바일 애플리케이션을 사용하는 것입니다.
+2. Black IDE에서 키 쌍 관리자를 열고 발행한 키 쌍의 개인 키를 복사합니다(예: NFT 전송).
 
 ![image](https://user-images.githubusercontent.com/93580180/177945281-060b95ce-2912-49a2-aa5d-bbf848ba9688.png)
 
-3.	On the Metamask wallet mobile app, import an account using this key pair. Enter the private key copied in the previous step and click import.
+3. 메타마스크 지갑 모바일 앱에서 이 키 쌍을 사용하여 계정을 가져옵니다. 이전 단계에서 복사한 개인 키를 입력하고 가져오기를 클릭합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177954799-b86dae87-5274-4408-9d0b-5b52682549d1.png)
 
-4.	After importing account, the next step is to add the BSC Testnet configuration to the wallet. Ensure that you are using the same account whose pubic address was issued the NFT.
+4. 계정을 가져온 후 BSC 테스트넷 구성을 지갑에 추가합니다. NFT를 발급한 퍼블릭 주소가 속한 동일한 계정을 사용하고 있는지 확인하십시오.
 
 ![image](https://user-images.githubusercontent.com/93580180/177950571-4674930b-c8c6-4480-8808-ea587af2bb2d.png)
 
-5.	Ensure that your account is connected to the BSC Testnet. Also, ensure that you have enough BNB test tokens in your account. If not, you can use the BSC Testnet Faucet to acquire some, as mentioned earlier.
+5. 계정이 BSC 테스트넷에 연결되어 있는지 확인합니다. 또한 계정에 충분한 BNB 테스트 토큰이 있는지 확인하십시오. 그렇지 않은 경우 BSC 테스트넷 포셋을 사용하여 앞서 언급한 대로 일부를 획득할 수 있습니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177945438-84033dff-6d51-4fe6-875b-3b12bfe815c1.png)
  
-6.	To view the owned NFT assets your Metamask Mobile Wallet, click on the NFTs tab and then on the Import Tokens. Fill in the NFT details. In the address field, pass the address of the deployed contract and in the Id field pass the tokenID. Then click the Import button.
+6. 메타마스크 모바일 월렛 소유 NFT 자산을 보려면 NFT 탭을 클릭한 다음 토큰 가져오기를 클릭합니다. NFT 세부 정보를 입력합니다. 주소 필드에서 배포된 컨트랙트의 주소를 전달하고 ID 필드에 토큰 ID를 전달합니다. 그런 다음 Import 버튼을 클릭합니다.
 
 ![image](https://user-images.githubusercontent.com/93580180/177949365-52efd22c-25ac-4eac-b47e-82349d6b0a5c.png)
 
-## Conclusion 
-In this tutorial, we provided a step-to-step guide on how to issue, mint and transfer NFTs on the BSC Testnet using the BlackIDE from Obsidian Labs.. The technology stack used in this tutorial includes Solidity, Truffle, MetaMask, and BlackIDE. Check out our [GitHub](https://github.com/bnb-chain/bnb-chain-tutorial) for more tutorials on how to develop on BSC. If you have any questions or are stuck, reach out to us on our [Discord Channel](https://discord.com/channels/789402563035660308/912296662834241597).
+## 결론
+이 튜토리얼에서는 Obsidian Labs의 Black IDE를 사용하여 BSC 테스트넷에서 NFT를 발행 및 전송하는 방법에 대한 단계별 가이드를 제공했습니다. 이 튜토리얼에 사용되는 기술 스택에는 솔리디티, 트러플, 메타마스크 및 Black IDE가 포함됩니다. BSC에서 개발하는 방법에 대한 자세한 튜토리얼은 [GitHub](https://github.com/bnb-chain/bnb-chain-tutorial)을 참고하세요. 질문이 있거나 막히는 부분이 생기면 [Discord Channel](https://discord.com/channels/789402563035660308/912296662834241597)로 문의하세요.
 
