@@ -8,7 +8,7 @@ hide_table_of_contents: false
 
 ### 면책 조항
 
-**이 소프트웨어 및 관련 문서는 아직 상업적 사용에 부적합하며, 현재도 개발이 활발히 진행 중이므로 사전 고지 없이 변경될 수 있습니다. 코드와 보안 감사가 완결되지 않았고, 버그 바운티도 준비가 되어있지 않습니다. 네트워크를 사용한 테스트를 진헹할 때 리스크를 잘 인지하시고 주의하실 것을 당부드립니다.**
+**이 소프트웨어 및 관련 문서는 아직 상업적 사용에 부적합하며, 현재도 개발이 활발히 진행 중이므로 사전 고지 없이 변경될 수 있습니다. 코드와 보안 감사가 완결되지 않았고, 버그 바운티도 준비가 되어있지 않습니다. 네트워크를 사용한 테스트를 진행할 때 리스크를 잘 인지하시고 주의하실 것을 당부드립니다.**
 
 
 GitHub 구현 링크: <https://github.com/bnb-chain/bsc-genesis-contract>
@@ -33,9 +33,9 @@ GitHub 구현 링크: <https://github.com/bnb-chain/bsc-genesis-contract>
 
 텐더민트에서는 검증인들이 블록을 처리하기 전 합의를 합니다. 즉, 그 블록의 서명들과 상태 루트는 다음 블록 전까지 포함되지 않습니다. 따라서 모든 블록은 이전 블록을 생성한 표들을 포함하는 LastCommit이라는 필드를 포함하고 있으며, 블록 헤더에는 이전 블록에서 트랜잭션을 처리한 후 엡의 머클 루트 해시를 나타내는 AppHash라는 필드도 있습니다. 그래서, 만약 H 높이에서 AppHash를 검증하고 싶다면, LastCommit로부터 H+1의 높이의 서명이 필요합니다. (이 AppHash는 단 H-1 블록까지 모든 트랜잭션 결과를 포함한다는 사실을 잊지 마세요)
 
-작업증명(Proof-of-Work)과는 달리, 라이트 클라이언트 프로토콜은 블록체인의 모든 헤더를 다운로드해서 확인할 필요가 없습니다. 클라이언트는 검증인 집단이 크게 변화하지 않은 이상 언제든 최신 헤더에 접근할 수 있습니다. 민액 검증인 집단이 변하는 중이라면 클라이언트들은 이 변경 사항들을 추적해야 하는데, 이를 위해서는 중대한 변화가 있는 모든 블록의 헤더를 다운받아야 합니다. 여기에서는 검증인 집단이 일정하다고 간주하며, 검증인 집단의 변경에 대해서는 다음에 다루도록 하겠습니다.
+작업증명(Proof-of-Work)과는 달리, 라이트 클라이언트 프로토콜은 블록체인의 모든 헤더를 다운로드해서 확인할 필요가 없습니다. 클라이언트는 검증인 집단이 크게 변화하지 않은 이상 언제든 최신 헤더에 접근할 수 있습니다. 만약 검증인 집단이 변하는 중이라면 클라이언트들은 이 변경 사항들을 추적해야 하는데, 이를 위해서는 중대한 변화가 있는 모든 블록의 헤더를 다운받아야 합니다. 여기에서는 검증인 집단이 일정하다고 간주하며, 검증인 집단의 변경에 대해서는 다음에 다루도록 하겠습니다.
 
-이더리움 플랫폼은 golang으로 구현된 무상태의 미리 컴파일된 컨트랙트와 solidity로 구현된 일반 컨트랙트를 지원합니다. 일반 컨트랙트에 비해 미리 컴파일된 컨트랙트는 더 효율적이며 가스비도 더 낮지만, 상태가 없습니다. 하지만 온체인 라이트 클라이언트는 상태가 있어야 합니다. 따라서 여기서는 미리 컴파일된 컨트랙트(서명 검증과 같은 무상태 계산)과 일반 컨트랙트(검증인 집단과 신뢰할 수 있는 appHast 저장)가 혼합된 접근법을 취해볼 것입니다.
+이더리움 플랫폼은 golang으로 구현된 컨트랙트(서명 검증과 같은 무상태 계산)와 solidity로 구현된 일반 컨트랙트를 지원합니다. 일반 컨트랙트에 비해 미리 컴파일된 컨트랙트는 더 효율적이며 가스비도 더 낮지만, 상태가 없습니다. 하지만 온체인 라이트 클라이언트는 상태가 있어야 합니다. 따라서 여기서는 미리 컴파일된 컨트랙트(서명 검증과 같은 무상태 계산)과 일반 컨트랙트(검증인 집단과 신뢰할 수 있는 appHast 저장)가 혼합된 접근법을 취해볼 것입니다.
 
 ![img](../../static/img/lightclient.png)
 
@@ -43,11 +43,11 @@ GitHub 구현 링크: <https://github.com/bnb-chain/bsc-genesis-contract>
 
 #### 텐더민트 헤더 검증하기
 
-This contract implements tendermint header verification algorithm. The input parameters contain the trusted consensus state and a new tendermint header. The validation algorithm will verify the new tendermint header against the trusted consensus state. If the new header is valid, a new consensus state will be created and returned to caller. Otherwise, an error will be returned.
+이 컨트랙트는 텐더민트 헤더 검증 알고리즘을 나타냅니다. 입력 파라미터에는 신뢰할 수 있는 합의 상태와 새 텐더민트 헤더가 들어갑니다. 확인 알고리즘은 합의 상태와 텐더민트 헤더를 비교하게 됩니다. 만일 새 헤더가 유효하면, 새로운 합의 상태가 만들어지고 호출자에게 반환됩니다. 아닌 경우에는 에러가 반환됩니다.
 
 #### 머클 증명 검증하기
 
-This contract implements a [텐더민트 merkle proof verification algorithm](https://github.com/tendermint/tendermint/blob/master/docs/architecture/adr-026-general-merkle-proof.md).
+이 컨트랙트는 [텐더민트 머클 증명 검증 알고리즘](https://github.com/tendermint/tendermint/blob/master/docs/architecture/adr-026-general-merkle-proof.md)을 나타냅니다.
 
 ### 솔리디티 컨트랙트
 
@@ -63,7 +63,7 @@ This contract implements a [텐더민트 merkle proof verification algorithm](ht
       nextValidatorSet     *tmtypes.ValidatorSet
     }
     ```
-2. 텐더민트 헤더: 새로운 텐더민트 헤더를 동기화하고 싶은 릴레이어는 이 객체를 빌드하기 위해 BC를 쿼리해야 합니다. 그리고 byte 배열에 인코딩한 뒤, syncTendermintHeader를 호출합니다.
+2. 텐더민트 헤더: 새로운 텐더민트 헤더를 동기화하고 싶은 릴레이어(relayer)는 이 객체를 빌드하기 위해 BC를 쿼리해야 합니다. 그리고 byte 배열에 인코딩한 뒤, syncTendermintHeader를 호출합니다.
     ```golang
     type Header struct {
         Header blockHeader
@@ -104,11 +104,11 @@ function **verifyMerkleProof**(int64 height, byte[] key, byte[] value, byte[] pr
 
 * **TokenManager 컨트랙트**
 
-    이 컨트랙트는 두 체인에서 토큰들을 결합하고 해체시키기 위한 것입니다.
+    이 컨트랙트는 두 체인에서 토큰들을 결합하고 해체하기 위한 것입니다.
 
 * **BSCValidatorSet 컨트랙트**
 
-    비컨 체인에서 BSC의 검증인 변경을 감시합니다. 체인 간 트랜잭션 검증을 위해 라이트 클라이언트와 소통하며, BSC를 위한 검증인 집단 변경을 적용합니다. 검증인을 위한 블록 생성 가스비 보상을 저장하기도 하며, validatorSet 변경의 크로스체인 패키지 수신 시 검증인들에게 분배합니다.
+    비콘 체인(BC)에서 BSC의 검증인 변경을 감시합니다. 체인 간 트랜잭션 검증을 위해 라이트 클라이언트와 소통하며, BSC를 위한 검증인 집단 변경을 적용합니다. 검증인을 위한 블록 생성 가스비 보상을 저장하기도 하며, validatorSet 변경의 크로스체인 패키지 수신 시 검증인들에게 분배합니다.
 
 * **시스템 보상 컨트랙트**
 
