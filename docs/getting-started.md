@@ -66,59 +66,59 @@ BNB 체인은 [https://www.bnbchain.org/en](https://www.bnbchain.org/en))에서 
 - 주소의 자산 잔액을 표시
 - 자산을 보내고 받기
 
-Binance Extension Wallet also presents a trading UI, where you can examine market data and manage your orders to trade among the listed assets. BNB Smart Chain supports several popular wallets like [MetaMask](wallet/metamask.md) and [TrustWallet](wallet/trustwallet.md), to learn more about the supported wallets refer [here](Wallet.md). For a list of tutorials on how to use other supported wallets with BNB Smart Chain, refer [here](wallets/wallet-tutorial-overview.md).
+바이낸스 익스텐션 월렛은 시장 데이터를 검토하고 상장된 자산 간 거래를 위한 주문을 관리할 수 있는 트레이딩 UI도 제공합니다. BNB 스마트체인은 [메타마스크](wallet/metamask.md) 및 [트러스트월렛](wallet/trustwallet.md)와 같은 여러 인기 지갑을 지원합니다. 지원되는 지갑에 대한 자세한 내용은 [여기](Wallet.md)를 참고하세요. BNB 스마트체인에서 지원되는 기타 지갑을 사용하는 방법에 대한 튜토리얼 목록은 [여기](wallet-tutorial-overview.md)를 참조하십시오.
 
-## BNB Token and Fees
-BNB is the cryptocurrency coin that powers the BNB Chain ecosystem. As one of the world's most popular utility tokens, not only can you trade BNB like any other cryptocurrency, you can also use BNB in a wide range of applications and use cases. 
+## BNB 토큰 및 수수료
+BNB는 BNB 체인 생태계의 기반이 되는 암호화폐 코인입니다. 세계에서 가장 인기 있는 유틸리티 토큰 중 하나로, 다른 암호화폐처럼 BNB를 거래할 수 있을 뿐만 아니라, 다양한 애플리케이션과 활용 사례들에서 BNB를 사용할 수 있습니다. 
 
-Although initially based on the Ethereum network, the ERC-20 BNB tokens were later swapped with [BEP-2](https://academy.binance.com/en/glossary/bep-2) BNB at a 1:1 ratio. The BEP-2 BNB is the native coin of the Beacon Chain, and the mainnet.
-In 2020, the BNB Smart Chain (BSC) was launched. BSC is a blockchain network that runs in parallel with the BNB Beacon Chain. This means that BNB can be found in three different forms:
+ERC-20 BNB 토큰은 처음에는 이더리움 네트워크를 기반으로 했지만 이후 [BEP-2](https://academy.binance.com/en/glossary/bep-2)와 함께 BNB와 1:1 비율로 스왑되었습니다. BEP-2 BNB는 비콘 체인과 메인넷의 네이티브 코인입니다.
+2020년에는 BNB 스마트 체인(BSC)이 출시되었다. BSC는 BNB 비콘 체인과 평행적으로 작동하는 블록체인 네트워크입니다. 이는 BNB가 세 가지 다른 형태로 있을 수 있음을 뜻합니다.
 
-- BNB BEP-2 on the BNB Beacon Chain.
-- BNB BEP-20 on the BNB Smart Chain.
-- BNB ERC-20 on the Ethereum network.
+- BNB 비콘 체인의 BNB BEP-2
+- BNB 스마트 체인의 BNB BEP-20
+- 이더리움 네트워크의 BNB ERC-20
 
-## How to Buy BNB Tokens
-As all fees on BNB Chain are paid in BNB, therefore, in order to interact with the BNB Chain network you will need to have some BNB tokens. 
-- BNB tokens can also be received for usage on testnet through the [testnet faucet](https://testnet.binance.org/faucet-smart).
-- The BNB tokens for usage on mainnet are available for purchase on multiple leading exchanges and wallets as explained [here](#wallet). You can also refer [here](wallets/wallet-tutorial-overview) for tutorials on how to use different wallets for use with BNB Chain to send/receive/purchase BNB Tokens.
+## BNB 토큰 구매하기
+BNB 체인의 모든 수수료는 BNB로 지불되므로, BNB 체인 네트워크와 상호 작용하기 위해서는 BNB 토큰이 필요합니다. 
+- 테스트넷 사용을 위한 BNB 토큰은 [테스트넷 포셋](https://testnet.binance.org/faucet-smart)를 통해 수령할 수 있습니다.
+- 메인넷에서 사용하기 위한 BNB 토큰은 [여기](#wallet)에 설명된 대로 여러 주요 거래소 및 지갑에서 구입할 수 있습니다. BNB 토큰을 주고받고 구매하기 위해 BNB 체인과 함께 사용하기 위해 다른 지갑을 사용하는 방법에 대한 튜토리얼은 [여기](wallets/wallet-tutorial-overview)를 참조할 수도 있습니다.
 
-## Chain Explorer
-Chain Explorer provides a portal to explore blocks and transaction details. On [BNB Chain Explorer](https://explorer.bnbchain.org/) and [BscScan](https://bscscan.com/), you can also check different asset types, the distribution of their ownerships, and owners' transactions.
+## 체인 탐색기
+체인 탐색기는 블록 및 트랜잭션 세부 정보를 탐색할 수 있는 포털을 제공합니다. [BNB 체인 익스플로러](https://explorer.bnbchain.org/) 및 [BscScan](https://bscscan.com/)에서도 다양한 자산 유형, 소유권의 분포 및 소유자의 거래를 확인할 수 있습니다.
 
 ## REST API
-There are [Accelerated Nodes](beaconchain/develop/node/nodetypes.md) which provide advanced API services for the public. Here is a list of all the Rest API information Accelerated Node provides: [paths](beaconchain/develop/api-reference/dex-api/paths). For information regarding RPC Endpoints for BSC, refer [here](rpc.md).
+일반인을 위한 API 서비스를 제공하는 [고속 노드(Accelerated Nodes)](beaconchain/develop/node/nodetypes.md)가 있습니다. 고속 노드가 제공하는 모든 Rest API 정보 목록은 [paths](beaconchain/develop/api-reference/dex-api/paths)에서 확인할 수 있습니다. BSC용 RPC 엔드포인트에 대한 자세한 내용은 [여기](rpc.md)를 참조하십시오.
 
-### Node RPC
-There are data seed nodes in the network which allow users to perform low-level operations like executing ABCI queries, viewing network/consensus state or broadcasting a transaction.
-If you run a full node by yourself, you can also use those RPC functions. Here is a list of all the Node RPC services it provides: for Beacon Chain refer [here](beaconchain/develop/api-reference/node-rpc.md) and for BNB Smart Chain refer [here](rpc.md).
+### 노드 RPC
+네트워크에는 사용자가 ABCI 쿼리 실행, 네트워크/컨센서스 상태 보기 또는 트랜잭션 전파와 같은 낮은 레벨의 작업을 수행할 수 있는 데이터 시드 노드가 있습니다.
+풀노드를 직접 실행하는 경우 이러한 RPC 기능도 사용할 수 있습니다. 비콘 체인은 [여기](beaconchain/develop/api-reference/node-rpc.md)를 참고하고 BNB 스마트 체인은 [여기](rpc.md)를 참고하세요.
 
-## Advanced Ways To Use BNB Chain
-### Run your own full node
+## BNB 체인을 사용하는 고급 방법
+### 풀노드 실행
 
-Please refer to this guide about how to run your own full node on [Beacon Chain](beaconchain/fullnode.md) and [BNB Smart Chain](validator/fullnode.md).
+[비콘체인](beaconchain/fullnode.md) 및 [BNB 스마트체인](validator/fullnode.md)에서 자체적인 풀노드를 실행하는 방법에 대해서는 본 안내서를 참고하세요.
 
-### Run your own Light Client
+### 자체 라이트 클라이언트 실행
 
-Please refer to this guide about [how to run your own light client on Beacon Chain](beaconchain/light-client.md).
+[비콘체인에서 자체 라이트 클라이언트를 실행하는 방법](beaconchain/light-client.md)에 대해서는 본 가이드를 참고하세요.
 
-### Access via Node Command Line Interface (CLI)
+### 노드 커맨트 라인 인터페이스(CLI)를 통해 액세스하기
 
-A Command Line Interface is available for Linux and Mac platforms. Please refer to the [CLI Reference](beaconchain/develop/api-reference/cli).
+CLI는 Linux 및 Mac 플랫폼에서 사용할 수 있습니다. [CLI 문서](beaconchain/develop/api-reference/cli)를 참조하십시오.
 
-### Use SDKs
+### SDK 사용하기
 
-SDKs are also provided as a starting point for your apps.
+앱 개발의 시작점으로 SDK도 제공됩니다.
 
-There are two advanced SDK solutions for Beacon chain: [Java](<https://github.com/bnb-chain/java-sdk>) and [Golang](<https://github.com/bnb-chain/go-sdk>).
+비콘 체인에는 [Java](<https://github.com/bnb-chain/java-sdk>)와 [Golang](<https://github.com/bnb-chain/go-sdk>)의 두 가지 고급 SDK 솔루션이 있습니다.
 
-Both solutions provide functions for:
+두 가지 모두 다음의 기능을 제공합니다.
 
-* Create wallets and manage keys
-* Encode/sign transactions and submit to Binance Chain/DEX, including Transfer, New Order, Cancel Order, etc.
-* Communicate with Binance Chain/DEX Node RPC calls through public node RPC services or your own private full nodes
+* 지갑 생성 및 키 관리
+* 전송, 신규 주문, 주문 취소 등을 포함한 트랜잭션을 인코딩/서명하고 바이낸스 체인/DEX에 제출
+* 퍼블릭 노드 RPC 서비스 또는 자체 풀노드를 통해 바이낸스 체인/DEX 노드 RPC 호출과 통신
 
-Please refer to specific SDK documentation for more information:
+더 자세한 정보는 각 SDK 문서를 참고하세요.
 
 - [Go](https://github.com/bnb-chain/go-sdk)([Documentation](https://github.com/bnb-chain/go-sdk/wiki))
 - [Java](https://github.com/bnb-chain/java-sdk)([Documentation](https://github.com/bnb-chain/java-sdk/wiki))
@@ -129,5 +129,5 @@ Please refer to specific SDK documentation for more information:
 - [Swift](https://github.com/bnb-chain/swift-sdk)([Documentation](https://github.com/bnb-chain/swift-sdk/blob/master/README.md))
 
 
-## Blockchain Details
-Please check the [technical details](learn/beaconIntro.md#technology-details) for more technical information.
+## 블록체인 세부 정보
+더 기술적인 정보는 [기술적 사항들](learn/beaconIntro.md#technology-details)을 참고하세요.
