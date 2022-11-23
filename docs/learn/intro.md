@@ -32,7 +32,7 @@ BNB 스마트 체인은 또한 EVM 호환이 되는 스마트 컨트랙트와 �
 | Cross Chain       |[BEP3](https://github.com/bnb-chain/BEPs/blob/master/BEP3.md) introduces *Hash Timer Locked Contract functions* and further [mechanism](https://community.binance.org/topic/1892) to handle inter-blockchain tokens peg.    | BSC comes with efficient [native dual chain communication](cross-chain.md); Optimized for scaling high-performance dApps that require fast and smooth user experience.                    |
 -->
 ## 크로스체인과 멀티체인의 생태계
-2021년에 BSC가 얻은 큰 교훈은 "하나의 체인"으로 모든 것을 처리할 수 없다는 것입니다. 피크 타임에서 BSC는 200만명 이상의 일일 활성 사용자(DAU)를 기록했고, 단일 GameFi 분야가 100만명까지 가기도 했습니다. 기서은 네트워크 자체와 그것을 지원하는 RPC/API 노드 등 인프라에 막대한 도전을 제기했습니다. 거대한 사용자 기반을 지닌 dApp의 경우 멀티체인과 크로스체인이 해결방안이 되어야 합니다.
+2021년에 BSC가 얻은 큰 교훈은 "하나의 체인"으로 모든 것을 처리할 수 없다는 것입니다. 피크 타임에서 BSC는 200만명 이상의 일일 활성 사용자(DAU)를 기록했고, 단일 GameFi 분야가 100만명까지 가기도 했습니다. 이것은 네트워크 자체와 그것을 지원하는 RPC/API 노드 등 인프라에 막대한 도전을 제기했습니다. 거대한 사용자 기반을 지닌 dApp의 경우 멀티체인과 크로스체인이 해결방안이 되어야 합니다.
 
 BSC 코어 팀은 탈중앙화된 연산력과 스토리지에 대한 계속되는 수요 증가를 충족시킬 수 있는 파티션체인과 멀티체인의 미래를 강력히 믿습니다. 이는 ETH2.0, 폴카닷의 멀티체인 전략, 코스모스, 아발란체 등 업계의 다른 블록체인들과도 일관적입니다.
 
