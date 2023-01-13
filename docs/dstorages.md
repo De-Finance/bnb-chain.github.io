@@ -1,5 +1,5 @@
 ---
-sidebar_label: D슽리지
+sidebar_label: D스토리지
 sidebar_position: 2
 hide_table_of_contents: false
 ---
