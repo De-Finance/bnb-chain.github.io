@@ -1,14 +1,14 @@
 ---
-sidebar_label: DStorages
+sidebar_label: D슽리지
 sidebar_position: 2
 hide_table_of_contents: false
 ---
 
-# Decentralized Storage
-Decentralized storage system enable users to store their data in a peer-to-peer distributed network which consists of operators across different locations. Comparing with centralized storage, it offers more control, privacy as well as security over the user's own data. Further more, decentralized storage is more resilient since there is no single point of failure of the storage.
+# 탈중앙화 저장소
+탈중앙화 저장소 시스템은 사용자가 노드들에 여러 장소에 분산되어 있는 P2P 네트워크에 데이터를 저장할 수 있도록 해줍니다. 중앙화 저장소와 비교하면, 더 많은 권한, 보안 및 사용자 데이터에 대한 안정성을 제공합니다. 또한, 탈중앙화 저장소는 여러 노드에 분산 되어 있어 단일 장애 지점이 없기 때문에 더욱 탄력적입니다.
 
-Following is the list of decentralized Storage protocols or networks that you can used with BNB Chain.
+다음은 BNB 체인에서 사용할 수 있는 탈중앙화 저장소 프로토콜 및 네트워크입니다.
 
-- [**IPFS**](https://ipfs.tech/): The InterPlanetary File System (IPFS) is a distributed file system allows users to store and access verifiable and content-addressable data in a peer-to-peer network.. It is a distributed protocol designed to preserve and grow humanity's knowledge by making the web upgradeable, resilient and more open.
-- [**Filecoin**](https://filecoin.io/build/): Filecoin is a peer-to-peer network that stores files, with built-in economic incentives to ensure files are stored reliably over time. Filecoin combines the benefits of storage on [IPFS](https://docs.filecoin.io/developers/introduction/overview/#) with blockchain-powered verifiability and persistency. The network offers robust and resilient distributed storage at massively lower cost compared to current centralized alternatives.
+- [**IPFS**](https://ipfs.tech/): The InterPlanetary File System (IPFS)은 P2P 네트워크에서 사용자들이 저장 및 검증 가능하고 내용 주소 지정 가능한 데이터를 저장하고 액세스할 수 있는 분산 파일 시스템입니다. IPFS는 웹을 업그레이드하고 탄력적이며 개방적으로 만들어 인류의 지식을 보존하고 성장시키기 위해 고안된 분산 프로토콜이다.
+- [**Filecoin**](https://filecoin.io/build/): 파일코인은 파일들이 시간이 지나도 안정적으로 저장할 수 있도록 자체 혜택을 제공하는 P2P 저장소입니다. 파일코인은 [IPFS](https://docs.filecoin.io/developers/introduction/overview/#)의 장점을 블록체인 기반 검증 및 지속성과 결합하여 혜택을 제공합니다. 이 네트워크는 현재의 중앙 집중식 대안에 비해 훨씬 저렴한 비용으로 강력하고 탄력적인 분산 스토리지를 제공합니다.
 

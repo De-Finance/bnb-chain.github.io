@@ -1,28 +1,27 @@
-# Breathe Blocks
+# 브레스 블록(Breathe Blocks)
 
-In BNB Beacon Chain, there is one kind of special blocks called **Breathe Block**.
-A breathe block is the first block of a day in UTC time, for example, block [288644676](https://explorer.bnbchain.org/block/288644676) is 
-a breathe block because it is the first block of 06/01/2023.
+BNB 비컨 체인에는, **브레스 블록**이라는 특수한 블록이 존재합니다.
+브레스 볼록은 하루 UTC 시간의 첫 번째 블록입니다. 예를 들어 블록 [288644676](https://explorer.bnbchain.org/block/288644676)은 2023년 1월 6일의 첫 번째 블록이기 때문에 브레스 블록입니다.
 
-In breathe block, some special logics will be executed, for example, validator set update, staking reward allocations, parameter changes, and so on.
+브레스 블록에서는 특수한 연산들이 행해지는데, 검증인 집합 업데이트, 스테이킹 보상 할당, 매개변수 변화 등이 이뤄집니다.
 
-## How to get breathe blocks
+## 브레스 블록 찾기
 
-There are several approaches to find breathe blocks:
+브레스 블록은 여러 방법을 통해 구할 수 있습니다:
 
-- Messages (e.g., kafka messages) can be published to receive breathe blocks, for more information please refer to [breathe block](https://docs.bnbchain.org/docs/beaconchain/get-extra-data-from-fullnode/#11-breatheblock).
+- 메세지 (예., kafka 메세지)를 통해 브레스 블록을 받을 수 있는데, 자세한 사항은 [여기](https://docs.bnbchain.org/docs/beaconchain/get-extra-data-from-fullnode/#11-breatheblock)를 참고하세요.
 
-- You can also find breathe blocks by accessing local logs if you are running a Beacon Chain node. In `node.log` log file, the heights of breathe blocks will be logged.
+- 비컨 체인 노드를 운영하고 있으면 로컬 로그에 접근하여 브레스 블록을 찾을 수 있습니다. `node.log` 로그 파일 안에, 브레스 블록의 높이가 기록될 것입니다.
 
-- Another option is using [Explorer](https://explorer.bnbchain.org/) by looking at the block time. Please do check the surrounding blocks if you find a potential one (multiple blocks can be mined in the same second).
+- 또 다른 옵션은 [탐색기](https://explorer.bnbchain.org/)를 통해 블록 시간을 조회하는 것입니다. 같은 시간에 여러 블록이 생성될 수도 있으므로 찾은 후에 주변 블록도 확인해 보세요.
 
-## What happens in breathe blocks
+## 브레스 블록은 무엇을 하나요
 
-Breathe blocks can execute any logics as normal blocks. Besides, there are some logics only happened in breathe blocks, 
-to unify some handlings or avoid any burden on normal blocks (e.g., for performance).
+브레스 블록은 일반 블록이 하는 일을 모두 수행합니다. 여기에 브레스 블록만이 하는 연산들이 추가되는 형식으로,
+성능 등의 문제가 일어나지 않기 위해 일관적을 처리할 수 있도록 제작하였습니다.
 
-- Validator set update - In breathe blocks, validator set updates will take effect, i.e., updating validators on beacon chain or triggering cross chain communication for side chain's validator set update.
+- 검증인 집합 업데이트 - 브레스 블록 안에서, 검증인 집합 업데이트가 일어나는데 비컨 체인의 검증인을 업데이트하거나 크로스 체인 통신을 통해 사이드 체인의 검증인 집합을 업데이트합니다.
 
-- Staking reward calculation and allocation - the staking rewards will be calculated and allocated in breathe blocks.
+- 스테이킹 보상 계산 및 할당 - 스테이킹 보상이 브레스 블록에서 계산되고 할당됩니다.
 
-- Proposal execution and parameter change - some proposals will be only executed in breathe blocks, for example, fee change proposals, cross chain parameter changes.
+- 제안 실행 및 변수 변화 - 일부 제안은 브레스 블록에서만 실행됩니다. 수수료 변경 제안이나 크로스 체인 매개 변수 변화가 대표적인 예시입니다.
